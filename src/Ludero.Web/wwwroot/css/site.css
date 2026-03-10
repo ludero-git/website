@@ -46,6 +46,12 @@ body {
   cursor: pointer;
 }
 
+.logo-img {
+  width: auto;
+  max-width: 160px;
+  display: block;
+}
+
 .logo-icon {
   width: 48px;
   height: 48px;
@@ -904,6 +910,13 @@ footer {
   transition: color 0.18s;
 }
 .footer-legal a:hover { color: rgba(255,255,255,0.7); }
+
+.footer-logo {
+    width: auto;
+    max-width: 160px;
+    display: block;
+    margin-bottom: 8px;
+}
 
 /* ─── ANIMATIONS ─── */
 @keyframes fadeUp {
