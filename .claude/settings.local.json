@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /c/Repositories/website-ludero log --oneline -10)",
+      "Bash(dotnet new sln -n Ludero --force)",
+      "Bash(dotnet sln Ludero.sln add src/Ludero.Web/Ludero.Web.csproj)",
+      "Bash(dotnet --version)",
+      "Bash(dotnet sln Ludero.slnx add src/Ludero.Web/Ludero.Web.csproj)",
+      "Bash(dotnet build src/Ludero.Web/Ludero.Web.csproj)"
+    ]
+  }
+}

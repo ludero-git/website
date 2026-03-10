@@ -1,0 +1,53 @@
+@using Ludero.Web.Models
+@model ContactFormModel
+@{
+    Layout = "/Pages/Emails/_EmailLayout.cshtml";
+    ViewData["Title"] = "Nieuw contactverzoek";
+}
+
+<h2 style="font-size:22px;font-weight:700;color:#0C614E;margin:0 0 8px;">Nieuw contactverzoek</h2>
+<p style="font-size:14px;color:#666;margin:0 0 24px;">Er is een nieuw bericht ontvangen via het contactformulier op ludero.nl.</p>
+
+<table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+  <tr style="background:#0C614E;">
+    <th style="padding:10px 16px;font-size:12px;font-weight:700;color:#ffffff;text-align:left;letter-spacing:1px;text-transform:uppercase;">Veld</th>
+    <th style="padding:10px 16px;font-size:12px;font-weight:700;color:#ffffff;text-align:left;letter-spacing:1px;text-transform:uppercase;">Waarde</th>
+  </tr>
+  <tr style="background:#f9f9f7;">
+    <td style="padding:10px 16px;font-size:13px;font-weight:600;color:#444;border-bottom:1px solid #eee;">Naam</td>
+    <td style="padding:10px 16px;font-size:13px;color:#222;border-bottom:1px solid #eee;">@Model.Name</td>
+  </tr>
+  @if (!string.IsNullOrEmpty(Model.Company))
+  {
+    <tr>
+      <td style="padding:10px 16px;font-size:13px;font-weight:600;color:#444;border-bottom:1px solid #eee;background:#fff;">Bedrijf</td>
+      <td style="padding:10px 16px;font-size:13px;color:#222;border-bottom:1px solid #eee;background:#fff;">@Model.Company</td>
+    </tr>
+  }
+  <tr style="background:#f9f9f7;">
+    <td style="padding:10px 16px;font-size:13px;font-weight:600;color:#444;border-bottom:1px solid #eee;">E-mail</td>
+    <td style="padding:10px 16px;font-size:13px;border-bottom:1px solid #eee;"><a href="mailto:@Model.Email" style="color:#0C614E;">@Model.Email</a></td>
+  </tr>
+  @if (!string.IsNullOrEmpty(Model.Phone))
+  {
+    <tr>
+      <td style="padding:10px 16px;font-size:13px;font-weight:600;color:#444;border-bottom:1px solid #eee;background:#fff;">Telefoon</td>
+      <td style="padding:10px 16px;font-size:13px;color:#222;border-bottom:1px solid #eee;background:#fff;"><a href="tel:@Model.Phone" style="color:#0C614E;">@Model.Phone</a></td>
+    </tr>
+  }
+  @if (!string.IsNullOrEmpty(Model.Subject))
+  {
+    <tr style="background:#f9f9f7;">
+      <td style="padding:10px 16px;font-size:13px;font-weight:600;color:#444;border-bottom:1px solid #eee;">Onderwerp</td>
+      <td style="padding:10px 16px;font-size:13px;color:#222;border-bottom:1px solid #eee;">@Model.Subject</td>
+    </tr>
+  }
+  <tr>
+    <td style="padding:10px 16px;font-size:13px;font-weight:600;color:#444;vertical-align:top;background:#fff;">Bericht</td>
+    <td style="padding:10px 16px;font-size:13px;color:#222;line-height:1.7;background:#fff;">@Model.Message</td>
+  </tr>
+</table>
+
+<p style="font-size:12px;color:#aaa;margin:24px 0 0;">
+  Ontvangen op @DateTime.Now.ToString("dd-MM-yyyy 'om' HH:mm") via ludero.nl/contact
+</p>

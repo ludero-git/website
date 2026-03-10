@@ -1,0 +1,38 @@
+@using Ludero.Web.Models
+
+<div class="modal-overlay" id="modal-factsheet">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-factsheet')" type="button">✕</button>
+    <h2>Download onze factsheet</h2>
+    <p>Laat uw contactgegevens achter en ontvang onze factsheet direct in uw mailbox.</p>
+
+    <form id="factsheetForm" method="post" action="/factsheet">
+      @Html.AntiForgeryToken()
+      <div class="form-group">
+        <label for="fs-name">Naam *</label>
+        <input type="text" id="fs-name" name="Form.Name" placeholder="Jan de Vries" required />
+      </div>
+      <div class="form-group">
+        <label for="fs-email">E-mailadres *</label>
+        <input type="email" id="fs-email" name="Form.Email" placeholder="jan@bedrijf.nl" required />
+      </div>
+      <div class="form-group">
+        <label for="fs-phone">Telefoonnummer *</label>
+        <input type="tel" id="fs-phone" name="Form.Phone" placeholder="+31 6 12 34 56 78" required />
+      </div>
+      <div class="form-group">
+        <label for="fs-company">Bedrijf</label>
+        <input type="text" id="fs-company" name="Form.Company" placeholder="Uw bedrijfsnaam" />
+      </div>
+      <button type="submit" class="btn btn-green" style="width:100%;padding:0.9rem">Stuur mij de factsheet →</button>
+    </form>
+
+    <div class="success-msg" id="factsheet-success">
+      <div class="success-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h3>Factsheet wordt verstuurd!</h3>
+      <p>Check uw inbox. We nemen ook persoonlijk contact op.</p>
+    </div>
+  </div>
+</div>

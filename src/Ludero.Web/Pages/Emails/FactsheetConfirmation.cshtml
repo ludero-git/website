@@ -1,0 +1,45 @@
+@using Ludero.Web.Models
+@model FactsheetFormModel
+@{
+    Layout = "/Pages/Emails/_EmailLayout.cshtml";
+    ViewData["Title"] = "Uw factsheet van Ludero";
+}
+
+<h2 style="font-size:22px;font-weight:700;color:#0C614E;margin:0 0 8px;">Uw factsheet is onderweg, @Model.Name!</h2>
+<p style="font-size:15px;color:#444;line-height:1.7;margin:0 0 24px;">
+  Bedankt voor uw interesse in Ludero EMS. We sturen u de factsheet zo snel mogelijk toe.
+  In de tussentijd nemen we ook <strong>persoonlijk contact</strong> met u op.
+</p>
+
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f0;border-radius:10px;padding:20px;margin-bottom:24px;">
+  <tr>
+    <td style="padding:6px 0;">
+      <span style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#888;">Wat kunt u verwachten?</span>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding:8px 0;font-size:14px;color:#444;line-height:1.7;">
+      ✔ De Ludero factsheet met technische details en mogelijkheden<br/>
+      ✔ Een persoonlijk contactmoment om uw specifieke situatie te bespreken<br/>
+      ✔ Informatie over een vrijblijvende demo van 30 minuten
+    </td>
+  </tr>
+</table>
+
+<p style="font-size:14px;color:#666;line-height:1.7;margin:0 0 24px;">
+  Wilt u alvast meer weten? Bekijk onze website of bel ons op
+  <a href="tel:0786821645" style="color:#0C614E;font-weight:700;">078 682 16 45</a>.
+</p>
+
+<table cellpadding="0" cellspacing="0">
+  <tr>
+    <td style="background-color:#e8bb5e;border-radius:8px;padding:12px 28px;">
+      <a href="https://ludero.nl/voor-ondernemers" style="font-size:14px;font-weight:700;color:#111111;text-decoration:none;">Bekijk Ludero EMS →</a>
+    </td>
+  </tr>
+</table>
+
+<p style="font-size:13px;color:#aaa;margin:32px 0 0;line-height:1.6;">
+  Met vriendelijke groet,<br/>
+  <strong style="color:#0C614E;">Team Ludero</strong>
+</p>

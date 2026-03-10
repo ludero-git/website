@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@ViewData["Title"]</title>
+</head>
+<body style="margin:0;padding:0;background-color:#f4f4f0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#1a1a1a;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f4f0;padding:40px 0;">
+    <tr>
+      <td align="center">
+        <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+
+          <!-- Header -->
+          <tr>
+            <td style="background-color:#0C614E;padding:32px 40px;text-align:center;">
+              <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:28px;font-weight:700;color:#ffffff;letter-spacing:-0.5px;">ludero</div>
+              <div style="font-size:11px;color:#e8bb5e;letter-spacing:2px;text-transform:lowercase;margin-top:4px;">mastering your energy</div>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="padding:40px;">
+              @RenderBody()
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="background-color:#f4f4f0;padding:24px 40px;border-top:1px solid #e8e8e4;">
+              <p style="margin:0;font-size:12px;color:#888;text-align:center;line-height:1.6;">
+                Ludero B.V. &bull; Veersedijk 101, 3341 LL Hendrik-Ido-Ambacht &bull; KvK: 98897233<br/>
+                <a href="mailto:info@ludero.nl" style="color:#0C614E;text-decoration:none;">info&#64;ludero.nl</a> &bull;
+                <a href="tel:0786821645" style="color:#0C614E;text-decoration:none;">078 682 16 45</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

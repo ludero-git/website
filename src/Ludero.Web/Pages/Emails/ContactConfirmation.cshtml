@@ -1,0 +1,54 @@
+@using Ludero.Web.Models
+@model ContactFormModel
+@{
+    Layout = "/Pages/Emails/_EmailLayout.cshtml";
+    ViewData["Title"] = "Bedankt voor uw bericht";
+}
+
+<h2 style="font-size:22px;font-weight:700;color:#0C614E;margin:0 0 8px;">Bedankt, @Model.Name!</h2>
+<p style="font-size:15px;color:#444;line-height:1.7;margin:0 0 24px;">
+  We hebben uw bericht ontvangen en nemen <strong>binnen 1 werkdag</strong> contact met u op.
+</p>
+
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f0;border-radius:10px;padding:20px;margin-bottom:24px;">
+  <tr>
+    <td style="padding:6px 0;">
+      <span style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#888;">Uw bericht</span>
+    </td>
+  </tr>
+  @if (!string.IsNullOrEmpty(Model.Company))
+  {
+    <tr>
+      <td style="padding:4px 0;font-size:14px;color:#444;"><strong>Bedrijf:</strong> @Model.Company</td>
+    </tr>
+  }
+  @if (!string.IsNullOrEmpty(Model.Subject))
+  {
+    <tr>
+      <td style="padding:4px 0;font-size:14px;color:#444;"><strong>Onderwerp:</strong> @Model.Subject</td>
+    </tr>
+  }
+  <tr>
+    <td style="padding:8px 0 0;font-size:14px;color:#444;line-height:1.6;border-top:1px solid #e0e0dc;margin-top:8px;">
+      @Model.Message
+    </td>
+  </tr>
+</table>
+
+<p style="font-size:14px;color:#666;line-height:1.7;margin:0 0 24px;">
+  Heeft u een urgente vraag? Bel ons direct op <a href="tel:0786821645" style="color:#0C614E;font-weight:700;">078 682 16 45</a>
+  of stuur een e-mail naar <a href="mailto:info@ludero.nl" style="color:#0C614E;">info&#64;ludero.nl</a>.
+</p>
+
+<table cellpadding="0" cellspacing="0">
+  <tr>
+    <td style="background-color:#0C614E;border-radius:8px;padding:12px 28px;">
+      <a href="https://ludero.nl/voor-ondernemers" style="font-size:14px;font-weight:700;color:#ffffff;text-decoration:none;">Meer over Ludero EMS →</a>
+    </td>
+  </tr>
+</table>
+
+<p style="font-size:13px;color:#aaa;margin:32px 0 0;line-height:1.6;">
+  Met vriendelijke groet,<br/>
+  <strong style="color:#0C614E;">Team Ludero</strong>
+</p>

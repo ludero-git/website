@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ludero – Mastering Your Energy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;0,900;1,300;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green:      #0C614E;
+      --green-dark: #094338;
+      --blue:       #2F799E;
+      --blue-light: #3d8cb3;
+      --yellow:     #e8bb5e;
+      --yellow-dark:#d4a440;
+      --black:      #111111;
+      --gray:       #f4f4f0;
+      --white:      #ffffff;
+      --text:       #1a1a1a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAVBAR ─── */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: var(--white);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 72px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .logo-text .brand {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--green);
+      letter-spacing: -0.02em;
+    }
+
+    .logo-text .tagline {
+      font-size: 0.68rem;
+      color: var(--blue);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: lowercase;
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      display: block;
+      padding: 0.45rem 1rem;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      transition: background 0.18s, color 0.18s;
+      cursor: pointer;
+    }
+
+    .nav-links a:hover { background: var(--gray); }
+    .nav-links a.active { background: var(--green); color: var(--white); }
+
+    .nav-cta {
+      background: var(--green) !important;
+      color: var(--white) !important;
+      padding: 0.5rem 1.25rem !important;
+    }
+    .nav-cta:hover { background: var(--green-dark) !important; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* ─── PAGE SYSTEM ─── */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      background: var(--green);
+      display: flex;
+      align-items: center;
+      padding: 120px 2.5rem 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(47,121,158,0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: -5%;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,187,94,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-left { }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(232,187,94,0.2);
+      border: 1px solid rgba(232,187,94,0.4);
+      color: var(--yellow);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.9rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-label::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--yellow);
+    }
+
+    .hero-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 900;
+      font-size: clamp(2.4rem, 4.5vw, 4rem);
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--yellow);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 2.5rem;
+      max-width: 480px;
+    }
+
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: 2px solid transparent;
+      letter-spacing: 0.01em;
+    }
+
+    .btn-primary {
+      background: var(--yellow);
+      color: var(--black);
+      border-color: var(--yellow);
+    }
+    .btn-primary:hover {
+      background: var(--yellow-dark);
+      border-color: var(--yellow-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,0.4);
+    }
+    .btn-outline:hover {
+      border-color: var(--white);
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-2px);
+    }
+
+    .btn-green {
+      background: var(--green);
+      color: var(--black);
+      border-color: var(--green);
+    }
+    .btn-green:hover {
+      background: var(--green-dark);
+      border-color: var(--green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(12,97,78,0.3);
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-image-wrap {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.4);
+      aspect-ratio: 4/3;
+      background: var(--green-dark);
+    }
+
+    .hero-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.9;
+    }
+
+    .hero-stat-card {
+      position: absolute;
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1rem 1.4rem;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.25);
+    }
+
+    .hero-stat-card.top {
+      top: -1.5rem;
+      right: -1.5rem;
+    }
+
+    .hero-stat-card.bottom {
+      bottom: -1.5rem;
+      left: -1.5rem;
+    }
+
+    .stat-num {
+      font-family: 'Fraunces', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--green);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 3px;
+    }
+
+    /* ─── SECTION UTILS ─── */
+    .section { padding: 80px 2.5rem; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--blue);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .section-title.white { color: var(--white); }
+    .section-title.blue { color: var(--blue); }
+    .section-body {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: #444;
+      max-width: 600px;
+    }
+
+    /* ─── YELLOW SECTION ─── */
+    .yellow-section {
+      background: var(--yellow);
+      padding: 80px 2.5rem;
+    }
+
+    .yellow-section .section-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .yellow-section h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .yellow-section p {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: #333;
+    }
+
+    .yellow-img {
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+    }
+
+    .yellow-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ─── FEATURE CARDS ─── */
+    .features-section {
+      background: var(--white);
+      padding: 80px 2.5rem;
+    }
+
+    .features-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1.5px solid #e8e8e4;
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: var(--blue);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+      transform: translateY(-4px);
+      border-color: var(--blue);
+    }
+    .card:hover::before { transform: scaleX(1); }
+
+    .card-icon {
+      width: 52px; height: 52px;
+      background: rgba(47,121,158,0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .card-icon svg { width: 26px; height: 26px; color: var(--blue); }
+
+    .card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: #555;
+    }
+
+    /* ─── CTA BANNER ─── */
+    .cta-banner {
+      background: var(--green);
+      padding: 64px 2.5rem;
+      text-align: center;
+    }
+
+    .cta-banner h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ─── PAGE HEADER ─── */
+    .page-header {
+      background: var(--yellow);
+      padding: 120px 2.5rem 64px;
+      text-align: center;
+    }
+
+    .page-header .label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .page-header h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      color: var(--blue);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .page-header p {
+      font-size: 1rem;
+      color: #333;
+      max-width: 520px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+
+    /* ─── FEATURE LIST GRID ─── */
+    .features-list-section {
+      background: var(--white);
+      padding: 80px 2.5rem;
+    }
+
+    .features-list-header {
+      margin-bottom: 3rem;
+    }
+
+    .features-list-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 1.25rem;
+      padding: 1.75rem;
+      background: var(--gray);
+      border-radius: 14px;
+      transition: all 0.25s;
+    }
+
+    .feature-item:hover {
+      background: #ececea;
+      transform: translateY(-2px);
+    }
+
+    .feature-item-icon {
+      width: 48px; height: 48px;
+      flex-shrink: 0;
+      background: rgba(47,121,158,0.12);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .feature-item-icon svg { width: 24px; height: 24px; color: var(--blue); }
+
+    .feature-item-text h3 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+
+    .feature-item-text p {
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: #555;
+    }
+
+    /* ─── TWO COL ─── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    /* ─── ENERGY HUB INTRO ─── */
+    .hub-intro {
+      background: var(--yellow);
+      padding: 64px 2.5rem;
+    }
+
+    .hub-intro-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .hub-intro h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 1rem;
+    }
+
+    .hub-intro p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: #333;
+    }
+
+    .hub-box {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1.75rem;
+      border-left: 4px solid var(--green);
+    }
+
+    .hub-box h3 {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--green);
+      margin-bottom: 0.6rem;
+    }
+
+    .hub-box p { font-size: 0.9rem; line-height: 1.65; color: #444; }
+
+    /* ─── DATA LIST ─── */
+    .data-list {
+      list-style: none;
+      margin-top: 0.75rem;
+    }
+
+    .data-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      color: #444;
+      padding: 0.3rem 0;
+    }
+
+    .data-list li::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--blue);
+      flex-shrink: 0;
+    }
+
+    /* ─── CONTACT ─── */
+    .contact-section {
+      padding: 100px 2.5rem 80px;
+    }
+
+    .contact-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 4rem;
+    }
+
+    .contact-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+      line-height: 1.1;
+    }
+
+    .contact-title span { color: var(--green); }
+
+    .contact-subtitle {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .form-group { margin-bottom: 1.2rem; }
+
+    .form-group label {
+      display: block;
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: #444;
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-family: inherit;
+      color: var(--text);
+      background: var(--white);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--green); }
+
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .contact-info h3 {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+      margin-top: 1.5rem;
+    }
+
+    .contact-info h3:first-child { margin-top: 0; }
+
+    .contact-info p, .contact-info a {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.65;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover { color: var(--green); }
+
+    .contact-info-card {
+      background: var(--gray);
+      border-radius: 14px;
+      padding: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    /* ─── MODAL ─── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 460px;
+      position: relative;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.3);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.25rem; right: 1.25rem;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      border: none;
+      background: var(--gray);
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .modal-close:hover { background: #ddd; }
+
+    .modal h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .modal p {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #0e0e0e;
+      color: rgba(255,255,255,0.75);
+      padding: 64px 2.5rem 32px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 2rem;
+    }
+
+    .footer-brand .brand-name {
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-brand .brand-tag {
+      font-size: 0.78rem;
+      color: var(--yellow);
+      letter-spacing: 0.04em;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      max-width: 260px;
+    }
+
+    .footer-cta-small {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--black);
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+      cursor: pointer;
+    }
+    .footer-cta-small:hover { background: var(--yellow-dark); }
+
+    .footer-col h4 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.6rem; }
+    .footer-col ul li a {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.18s;
+    }
+    .footer-col ul li a:hover { color: var(--white); }
+
+    .footer-col address {
+      font-style: normal;
+      font-size: 0.88rem;
+      line-height: 1.75;
+    }
+
+    .footer-col address a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+    }
+    .footer-col address a:hover { color: var(--white); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-legal a {
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.18s;
+    }
+    .footer-legal a:hover { color: rgba(255,255,255,0.7); }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up {
+      animation: fadeUp 0.65s ease forwards;
+    }
+
+    .fade-up:nth-child(2) { animation-delay: 0.1s; }
+    .fade-up:nth-child(3) { animation-delay: 0.2s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .navbar { padding: 0 1.5rem; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .hero-inner,
+      .yellow-section .section-inner,
+      .two-col,
+      .hub-intro-inner,
+      .contact-grid { grid-template-columns: 1fr; }
+
+      .hero-right { display: none; }
+      .hero { padding-top: 100px; text-align: center; }
+      .hero-label { margin: 0 auto 1.5rem; }
+      .hero-sub { margin: 0 auto 2rem; }
+      .hero-actions { justify-content: center; }
+
+      .cards-grid { grid-template-columns: 1fr; }
+      .features-list-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+
+      .section, .features-section, .features-list-section, .yellow-section,
+      .hub-intro, .cta-banner { padding: 56px 1.5rem; }
+
+      .page-header { padding: 100px 1.5rem 48px; }
+      .contact-section { padding: 80px 1.5rem 60px; }
+    }
+
+    /* mobile nav open */
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      background: var(--white);
+      padding: 1rem 1.5rem 1.5rem;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      z-index: 999;
+    }
+
+    /* ─── SUCCESS STATE ─── */
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 1.5rem;
+    }
+    .success-msg.show { display: block; }
+    .success-icon {
+      width: 56px; height: 56px;
+      background: rgba(12,97,78,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
+    .success-icon svg { color: var(--green); }
+    .success-msg h3 { font-family: 'Fraunces', serif; font-size: 1.4rem; margin-bottom: 0.5rem; }
+    .success-msg p { font-size: 0.92rem; color: #666; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════ NAVBAR ═══════════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="logo" onclick="showPage('home')">
+    <!-- Ludero Logo SVG recreation -->
+    <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#1a5f7a"/>
+          <stop offset="50%" stop-color="#2d9e7a"/>
+          <stop offset="100%" stop-color="#4dbf8a"/>
+        </linearGradient>
+        <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#e8bb5e"/>
+          <stop offset="100%" stop-color="#c89a3a"/>
+        </linearGradient>
+      </defs>
+      <!-- outer loop -->
+      <path d="M24 4C15 4 8 11 8 20C8 29 15 36 24 36C33 36 40 29 40 20" stroke="url(#g1)" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <!-- inner loop -->
+      <path d="M24 12C19 12 15 16 15 21C15 26 19 30 24 30C29 30 33 26 33 21" stroke="url(#g1)" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.7"/>
+      <!-- yellow accent -->
+      <path d="M8 20C8 29 15 38 24 40C30 41 35 38 38 34" stroke="url(#g2)" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div class="logo-text">
+      <span class="brand">ludero</span>
+      <span class="tagline">mastering your energy</span>
+    </div>
+  </div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#" onclick="showPage('home')" class="active" id="nav-home">Home</a></li>
+    <li><a href="#" onclick="showPage('ondernemers')" id="nav-ondernemers">Voor Ondernemers</a></li>
+    <li><a href="#" onclick="showPage('hubs')" id="nav-hubs">Voor Energy Hubs</a></li>
+    <li><a href="#" onclick="showPage('contact')" id="nav-contact" class="nav-cta">Contact</a></li>
+  </ul>
+
+  <div class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════ PAGE: HOME ═══════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-left fade-up">
+        <div class="hero-label">Energy Management System</div>
+        <h1 class="hero-title">
+          Lokale regie over<br/><em>jouw energie</em>
+        </h1>
+        <p class="hero-sub">
+          Wij geven jou als ondernemer de lokale regie over je energie-infrastructuur met ons EMS systeem. Slim sturen, kosten besparen, doorgroeien.
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="showPage('contact')">Klaar om je energie slim te sturen?</button>
+          <button class="btn btn-outline" onclick="showPage('ondernemers')">Meer weten →</button>
+        </div>
+      </div>
+      <div class="hero-right fade-up">
+        <div class="hero-image-wrap">
+          <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80&auto=format" alt="Zonnepanelen op bedrijfsdak" loading="lazy" />
+        </div>
+        <div class="hero-stat-card top">
+          <div class="stat-num">30%</div>
+          <div class="stat-label">Minder piekkosten</div>
+        </div>
+        <div class="hero-stat-card bottom">
+          <div class="stat-num">24/7</div>
+          <div class="stat-label">Lokale sturing</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Yellow: Problem statement -->
+  <section class="yellow-section">
+    <div class="section-inner">
+      <div>
+        <span class="section-label" style="color:var(--green)">De uitdaging</span>
+        <h2>Elektrificatie gaat snel — maar jij bepaalt het tempo</h2>
+        <p style="margin-top:1rem"><strong>Laadpalen, warmtepompen, zonnepanelen, batterijen en nieuwe machines vragen steeds meer vermogen.</strong></p>
+        <p style="margin-top:0.75rem; color:#444">Zonder actieve sturing wordt energie een rem op je bedrijfsontwikkeling. Het Ludero EMS zorgt dat jij voorop blijft lopen — zonder je aansluiting te verzwaren.</p>
+        <div style="margin-top:2rem">
+          <button class="btn btn-green" onclick="showPage('ondernemers')">Bekijk onze oplossing</button>
+        </div>
+      </div>
+      <div class="yellow-img">
+        <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800&q=80&auto=format" alt="Zonnepanelen park" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature cards -->
+  <section class="features-section">
+    <div class="section-inner">
+      <div class="features-header">
+        <div class="section-label">Wat wij bieden</div>
+        <h2 class="section-title">Alles in één slim systeem</h2>
+      </div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">
+            <!-- Peak management icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3>Piekbeheer &amp; loadbalancing</h3>
+          <p>Voorkom overschrijding van je vermogen en minimaliseer capaciteits- en piekkosten. Altijd binnen je gecontracteerd vermogen.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">
+            <!-- Dashboard/insight icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          </div>
+          <h3>Altijd inzicht</h3>
+          <p>Helder dashboard toont je verbruik, opwek, prijsontwikkelingen, capaciteit en status van al je installaties — real-time.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">
+            <!-- Vendor independent icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3>Vendor onafhankelijk</h3>
+          <p>Werkt met vrijwel alle merken laadpalen, omvormers, batterijen en warmtepompen. Geen vendor lock-in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner">
+    <div class="section-inner" style="max-width:700px">
+      <h2>Klaar om je energie slim te sturen?</h2>
+      <button class="btn btn-primary" onclick="showPage('contact')">Neem contact op</button>
+    </div>
+  </section>
+
+  <?php include_footer(); ?>
+</div><!-- /page-home -->
+
+
+<!-- ═══════════════════════ PAGE: VOOR ONDERNEMERS ═══════════════════════ -->
+<div class="page" id="page-ondernemers">
+
+  <div class="page-header">
+    <span class="label">EMS voor ondernemers</span>
+    <h1>Meer doen met je<br/>bestaande aansluiting</h1>
+    <p>Intelligente energiesturing voor bedrijven die willen groeien zonder te wachten op netuitbreiding.</p>
+    <button class="btn btn-green" onclick="showPage('contact')">Ja, geef mij regie over mijn energie!</button>
+  </div>
+
+  <section class="features-list-section">
+    <div class="section-inner">
+      <div class="features-list-header">
+        <div class="section-label">Wat Ludero EMS voor je doet</div>
+        <h2 class="section-title">Zeven redenen om nu te starten</h2>
+      </div>
+      <div class="features-list-grid">
+
+        <div class="feature-item">
+          <div class="feature-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="feature-item-text">
+            <h3>✔ Piekbeheer &amp; loadbalancing</h3>
+            <p>Voorkom overschrijding van je gecontracteerd vermogen en minimaliseer capaciteits- en piekkosten.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </div>
+          <div class="feature-item-text">
+            <h3>✔ Intelligente sturing van alle assets</h3>
+            <p>Het systeem optimaliseert continu en automatisch de beste inzet van laden, ontladen, verwarmen of terugleveren.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <div class="feature-item-text">
+            <h3>✔ Meer doen met je bestaande aansluiting</h3>
+            <p>Door intelligent te sturen is verzwaring vaak nog niet direct nodig. Je behoudt bedrijfscontinuïteit en groeit tóch door.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          </div>
+          <div class="feature-item-text">
+            <h3>✔ Altijd inzicht</h3>
+            <p>Een helder dashboard toont je verbruik, opwek, prijsontwikkelingen, capaciteit en status van al je installaties.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="feature-item-text">
+            <h3>✔ Local-first veiligheid</h3>
+            <p>De intelligente Ludero-controller stuurt bij voorkeur alles lokaal aan, en functioneert zelfs bij internetstoringen.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div class="feature-item-text">
+            <h3>✔ Vendor onafhankelijk</h3>
+            <p>Werkt met vrijwel alle gangbare merken laadpalen, omvormers, batterijen en warmtepompen.</p>
+          </div>
+        </div>
+
+        <div class="feature-item" style="grid-column: 1 / -1; max-width: 480px;">
+          <div class="feature-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div class="feature-item-text">
+            <h3>✔ Schaalbaar</h3>
+            <p>Het systeem groeit mee met je installatie en toekomstige uitbreidingen.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="margin-top:3rem; padding:2rem; background:var(--yellow); border-radius:14px; display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap;">
+        <div>
+          <div style="font-weight:700; font-size:1.05rem; color:var(--text)">Download onze factsheet</div>
+          <div style="font-size:0.88rem; color:#555; margin-top:0.25rem">Ontvang alle technische details — laat je e-mail en telefoonnummer achter.</div>
+        </div>
+        <button class="btn btn-green" onclick="openModal('modal-factsheet')">Download onze factsheet</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="section-inner" style="max-width:700px">
+      <h2>Klaar om je energie slim te sturen?</h2>
+      <button class="btn btn-primary" onclick="showPage('contact')">Neem contact op</button>
+    </div>
+  </section>
+
+</div><!-- /page-ondernemers -->
+
+
+<!-- ═══════════════════════ PAGE: VOOR ENERGY HUBS ═══════════════════════ -->
+<div class="page" id="page-hubs">
+
+  <div class="page-header">
+    <span class="label">EMS voor Energiecoöperaties &amp; Bedrijventerreinen</span>
+    <h1>Samen regie op vermogen,<br/>ook bij netcongestie</h1>
+    <p>Ludero maakt van een bedrijventerrein, coöperatie of multi-tenant gebouw een slimme, zelfsturende energy hub.</p>
+    <button class="btn btn-green" onclick="showPage('contact')">Ja, geef mij regie over mijn energie!</button>
+  </div>
+
+  <!-- Hub intro with 2 columns -->
+  <section class="hub-intro">
+    <div class="hub-intro-inner">
+      <div>
+        <h2>De oplossing: Ludero EMS voor Energy Hubs</h2>
+        <p>Ludero maakt van een bedrijventerrein, coöperatie of multi-tenant gebouw een slimme, zelfsturende energy hub. Het systeem stuurt en optimaliseert één gecoördineerde energielaag boven individuele aansluitingen en zorgt voor transparante, eerlijke en veilige verdeling van vermogen.</p>
+      </div>
+      <div>
+        <div class="hub-box">
+          <h3>Hoe werkt het?</h3>
+          <p>Bij elke deelnemer wordt een controller <em>"achter de meter"</em> geplaatst. Samen vormen deze installaties één virtuele energiehub, waarmee collectieve sturing en optimalisatie mogelijk wordt — vandaag al, zonder formeel groepscontract.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-list-section">
+    <div class="section-inner">
+      <div class="features-list-header">
+        <div class="section-label">Wat Ludero Energy Hubs biedt</div>
+        <h2 class="section-title">Collectieve sturing, individuele voordelen</h2>
+      </div>
+      <div class="features-list-grid">
+
+        <div class="feature-item">
+          <div class="feature-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><line x1="12" y1="8" x2="12" y2="13"/><path d="M7 13h10l2 8H5z"/></svg>
+          </div>
+          <div class="feature-item-text">
+            <h3>✔ Slim groepsvermogen verdelen</h3>
+            <p>Bij schaarste krijgt elke deelnemer of asset de juiste prioriteit: bedrijfscontinuïteit boven laden, kritieke processen boven niet-kritieke verbruikers.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="feature-item-text">
+            <h3>✔ Realtime bewaking &amp; automatische piekreductie</h3>
+            <p>Ludero voorkomt overschrijding van het gezamenlijke vermogen — volledig automatisch en zonder handmatig ingrijpen.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <div class="feature-item-text">
+            <h3>✔ Energiedeling binnen het terrein</h3>
+            <p>Deelnemers kunnen opwek, batterijcapaciteit en beschikbare ruimte slim met elkaar afstemmen. Ludero voert onderlinge afspraken technisch uit.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <div class="feature-item-text">
+            <h3>✔ Lokale datalaag voor EHP's</h3>
+            <p>Ludero is géén Energy Hub Platform, maar levert wél realtime meetdata, profielen voor verrekening, flexibiliteitspotentieel, API koppelingen en statusinformatie. Perfect voor coöperaties die energiehandel willen koppelen aan een extern platform.</p>
+            <ul class="data-list" style="margin-top:0.5rem">
+              <li>Realtime meetdata</li>
+              <li>Profielen voor verrekening</li>
+              <li>Flexibiliteitspotentieel</li>
+              <li>API koppelingen</li>
+              <li>Statusinformatie van alle assets</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="feature-item-text">
+            <h3>✔ Back-up &amp; veiligheid</h3>
+            <p>De lokale controller blijft sturen, ook bij internetuitval. Dat houdt de hub stabiel en veilig — altijd.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div class="feature-item-text">
+            <h3>✔ Schaalbaar &amp; toekomstbestendig</h3>
+            <p>Van 5 bedrijven in pilotfase tot honderden deelnemers en meerdere gekoppelde hubs. Het systeem groeit mee.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="margin-top:3rem; padding:2rem; background:var(--yellow); border-radius:14px; display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap;">
+        <div>
+          <div style="font-weight:700; font-size:1.05rem; color:var(--text)">Klaar om een echte Energy Hub te worden?</div>
+          <div style="font-size:0.88rem; color:#555; margin-top:0.25rem">Download onze factsheet — laat je e-mail en telefoonnummer achter.</div>
+        </div>
+        <button class="btn btn-green" onclick="openModal('modal-factsheet')">Download onze factsheet</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="section-inner" style="max-width:700px">
+      <h2>Klaar om je energie slim te sturen?</h2>
+      <button class="btn btn-primary" onclick="showPage('contact')">Neem contact op</button>
+    </div>
+  </section>
+
+</div><!-- /page-hubs -->
+
+
+<!-- ═══════════════════════ PAGE: CONTACT ═══════════════════════ -->
+<div class="page" id="page-contact">
+
+  <section class="contact-section">
+    <div class="contact-grid">
+      <div>
+        <h1 class="contact-title">Neem <span>contact</span><br/>met ons op</h1>
+        <p class="contact-subtitle">Klaar om de regie over je energie te nemen? Vul het formulier in en we nemen zo snel mogelijk contact op.</p>
+
+        <form id="contactForm" onsubmit="submitContactForm(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cf-name">Naam *</label>
+              <input type="text" id="cf-name" placeholder="Jan de Vries" required />
+            </div>
+            <div class="form-group">
+              <label for="cf-company">Bedrijf</label>
+              <input type="text" id="cf-company" placeholder="Uw bedrijfsnaam" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cf-email">E-mailadres *</label>
+              <input type="email" id="cf-email" placeholder="jan@bedrijf.nl" required />
+            </div>
+            <div class="form-group">
+              <label for="cf-phone">Telefoonnummer</label>
+              <input type="tel" id="cf-phone" placeholder="+31 6 12 34 56 78" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cf-subject">Onderwerp</label>
+            <select id="cf-subject">
+              <option value="">Selecteer een onderwerp…</option>
+              <option>EMS voor mijn bedrijf</option>
+              <option>EMS voor Energy Hub / Bedrijventerrein</option>
+              <option>Demo aanvragen</option>
+              <option>Factsheet downloaden</option>
+              <option>Anders</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="cf-message">Bericht *</label>
+            <textarea id="cf-message" placeholder="Vertel ons iets over uw situatie en hoe we u kunnen helpen…" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-green" style="width:100%; padding:1rem; font-size:1rem">Verstuur bericht →</button>
+        </form>
+
+        <div class="success-msg" id="contact-success">
+          <div class="success-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3>Bericht ontvangen!</h3>
+          <p>Bedankt voor uw bericht. We nemen binnen 1 werkdag contact met u op.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="contact-info-card">
+          <div class="contact-info">
+            <h3>📍 Adres</h3>
+            <p>Ludero B.V.<br/>Veersedijk 101<br/>3341 LL Hendrik-Ido-Ambacht<br/>Nederland</p>
+
+            <h3>📞 Telefoon</h3>
+            <p><a href="tel:0786821645">078 682 16 45</a></p>
+
+            <h3>✉️ E-mail</h3>
+            <p><a href="mailto:info@ludero.nl">info@ludero.nl</a></p>
+
+            <h3>🏛️ KvK-nummer</h3>
+            <p>98897233</p>
+
+            <h3>💼 BTW-nummer</h3>
+            <p>NL868692141B01</p>
+
+            <h3>🕐 Bereikbaarheid</h3>
+            <p>Maandag – vrijdag<br/>08:30 – 17:30 uur</p>
+          </div>
+        </div>
+
+        <div style="margin-top:1.5rem; padding:1.5rem; border:2px solid var(--yellow); border-radius:14px;">
+          <div style="font-weight:700; font-size:0.95rem; color:var(--text); margin-bottom:0.4rem">Liever een demo plannen?</div>
+          <p style="font-size:0.88rem; color:#555; line-height:1.6">Wil je het Ludero EMS in actie zien? Plan een vrijblijvende online demo van 30 minuten.</p>
+          <button class="btn btn-green" style="margin-top:1rem; font-size:0.88rem; padding:0.7rem 1.4rem" onclick="document.getElementById('cf-subject').value='Demo aanvragen'; document.getElementById('cf-message').focus()">Demo aanvragen</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-contact -->
+
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-name">ludero</div>
+        <div class="brand-tag">mastering your energy</div>
+        <p>Wij geven ondernemers en energiecoöperaties de lokale regie over hun energie-infrastructuur. Slim sturen. Kosten besparen. Doorgroeien.</p>
+        <span class="footer-cta-small" onclick="showPage('contact')">Klaar om je energie slim te sturen? Neem contact met ons op!</span>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigatie</h4>
+        <ul>
+          <li><a onclick="showPage('home')">Home</a></li>
+          <li><a onclick="showPage('ondernemers')">Voor Ondernemers</a></li>
+          <li><a onclick="showPage('hubs')">Voor Energy Hubs</a></li>
+          <li><a onclick="showPage('contact')">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Diensten</h4>
+        <ul>
+          <li><a onclick="showPage('ondernemers')">EMS voor bedrijven</a></li>
+          <li><a onclick="showPage('hubs')">Energy Hub oplossingen</a></li>
+          <li><a onclick="openModal('modal-factsheet')">Factsheet downloaden</a></li>
+          <li><a onclick="showPage('contact')">Demo aanvragen</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <address>
+          Ludero B.V.<br/>
+          Veersedijk 101<br/>
+          3341 LL Hendrik-Ido-Ambacht<br/>
+          Nederland<br/><br/>
+          <a href="tel:0786821645">078 682 16 45</a><br/>
+          <a href="mailto:info@ludero.nl">info@ludero.nl</a><br/><br/>
+          KvK: 98897233<br/>
+          BTW: NL868692141B01
+        </address>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2025 Ludero B.V. Alle rechten voorbehouden.</div>
+      <div class="footer-legal">
+        <a onclick="openModal('modal-cookies')">Cookiebeleid</a>
+        <a onclick="openModal('modal-privacy')">Privacybeleid</a>
+        <a onclick="openModal('modal-av')">Algemene Voorwaarden</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════ MODALS ═══════════════════════ -->
+
+<!-- Factsheet Modal -->
+<div class="modal-overlay" id="modal-factsheet">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-factsheet')">✕</button>
+    <h2>Download onze factsheet</h2>
+    <p>Laat uw contactgegevens achter en ontvang onze factsheet direct in uw mailbox.</p>
+    <form onsubmit="submitFactsheet(event)">
+      <div class="form-group">
+        <label>Naam *</label>
+        <input type="text" placeholder="Jan de Vries" required />
+      </div>
+      <div class="form-group">
+        <label>E-mailadres *</label>
+        <input type="email" placeholder="jan@bedrijf.nl" required />
+      </div>
+      <div class="form-group">
+        <label>Telefoonnummer *</label>
+        <input type="tel" placeholder="+31 6 12 34 56 78" required />
+      </div>
+      <div class="form-group">
+        <label>Bedrijf</label>
+        <input type="text" placeholder="Uw bedrijfsnaam" />
+      </div>
+      <button type="submit" class="btn btn-green" style="width:100%;padding:0.9rem">Stuur mij de factsheet →</button>
+    </form>
+    <div class="success-msg" id="factsheet-success">
+      <div class="success-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h3>Factsheet wordt verstuurd!</h3>
+      <p>Check uw inbox. We nemen ook persoonlijk contact op.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Cookie Modal -->
+<div class="modal-overlay" id="modal-cookies">
+  <div class="modal" style="max-width:540px">
+    <button class="modal-close" onclick="closeModal('modal-cookies')">✕</button>
+    <h2>Cookiebeleid</h2>
+    <div style="font-size:0.9rem;line-height:1.75;color:#444;max-height:60vh;overflow-y:auto;margin-top:1rem">
+      <p><strong>Ludero B.V.</strong> gebruikt functionele cookies om de website goed te laten werken. We plaatsen geen tracking- of advertentiecookies zonder uw toestemming.</p>
+      <p style="margin-top:0.75rem"><strong>Functionele cookies:</strong> Noodzakelijk voor het functioneren van de website. Deze cookies kunnen niet worden uitgeschakeld.</p>
+      <p style="margin-top:0.75rem"><strong>Analytische cookies:</strong> We gebruiken geanonimiseerde statistieken (bijv. via Matomo of Plausible) om inzicht te krijgen in het gebruik van onze website. Geen persoonsgegevens worden gedeeld met derden.</p>
+      <p style="margin-top:0.75rem">Heeft u vragen over ons cookiebeleid? Neem contact op via <a href="/cdn-cgi/l/email-protection#224b4c444d624e574647504d0c4c4e" style="color:var(--green)"><span class="__cf_email__" data-cfemail="94fdfaf2fbd4f8e1f0f1e6fbbafaf8">[email&#160;protected]</span></a>.</p>
+    </div>
+    <button class="btn btn-green" style="margin-top:1.5rem;width:100%" onclick="closeModal('modal-cookies')">Begrepen</button>
+  </div>
+</div>
+
+<!-- Privacy Modal -->
+<div class="modal-overlay" id="modal-privacy">
+  <div class="modal" style="max-width:540px">
+    <button class="modal-close" onclick="closeModal('modal-privacy')">✕</button>
+    <h2>Privacybeleid</h2>
+    <div style="font-size:0.9rem;line-height:1.75;color:#444;max-height:60vh;overflow-y:auto;margin-top:1rem">
+      <p><strong>Ludero B.V.</strong> hecht grote waarde aan de bescherming van uw persoonsgegevens. In dit privacybeleid informeren wij u over hoe wij omgaan met persoonsgegevens die via onze website worden verzameld.</p>
+      <p style="margin-top:0.75rem"><strong>Verwerkingsverantwoordelijke:</strong> Ludero B.V., Veersedijk 101, 3341 LL Hendrik-Ido-Ambacht.</p>
+      <p style="margin-top:0.75rem"><strong>Welke gegevens verzamelen wij?</strong> Via contactformulieren verzamelen wij naam, e-mailadres, telefoonnummer en berichtinhoud. Deze gegevens worden uitsluitend gebruikt om uw verzoek te behandelen.</p>
+      <p style="margin-top:0.75rem"><strong>Bewaartermijn:</strong> Persoonsgegevens worden niet langer bewaard dan noodzakelijk, maximaal 2 jaar na laatste contact.</p>
+      <p style="margin-top:0.75rem"><strong>Uw rechten:</strong> U heeft recht op inzage, correctie, verwijdering en bezwaar. Stuur een verzoek naar <a href="/cdn-cgi/l/email-protection#6c1c1e051a0d0f152c001908091e03420200" style="color:var(--green)"><span class="__cf_email__" data-cfemail="2b5b59425d4a48526b475e4f4e5944054547">[email&#160;protected]</span></a>.</p>
+    </div>
+    <button class="btn btn-green" style="margin-top:1.5rem;width:100%" onclick="closeModal('modal-privacy')">Sluiten</button>
+  </div>
+</div>
+
+<!-- Algemene Voorwaarden Modal -->
+<div class="modal-overlay" id="modal-av">
+  <div class="modal" style="max-width:540px">
+    <button class="modal-close" onclick="closeModal('modal-av')">✕</button>
+    <h2>Algemene Voorwaarden</h2>
+    <div style="font-size:0.9rem;line-height:1.75;color:#444;max-height:60vh;overflow-y:auto;margin-top:1rem">
+      <p><strong>Ludero B.V.</strong>, gevestigd te Hendrik-Ido-Ambacht, ingeschreven bij de KvK onder nummer 98897233, BTW-nummer NL868692141B01.</p>
+      <p style="margin-top:0.75rem"><strong>Artikel 1 – Toepasselijkheid</strong><br/>Deze algemene voorwaarden zijn van toepassing op alle aanbiedingen, overeenkomsten en leveringen van Ludero B.V.</p>
+      <p style="margin-top:0.75rem"><strong>Artikel 2 – Aanbod en aanvaarding</strong><br/>Alle aanbiedingen van Ludero zijn vrijblijvend. Een overeenkomst komt tot stand na schriftelijke bevestiging door Ludero.</p>
+      <p style="margin-top:0.75rem"><strong>Artikel 3 – Intellectueel eigendom</strong><br/>Alle rechten van intellectueel eigendom op de door Ludero geleverde producten en diensten berusten bij Ludero B.V.</p>
+      <p style="margin-top:0.75rem"><strong>Artikel 4 – Aansprakelijkheid</strong><br/>De aansprakelijkheid van Ludero is beperkt tot het bedrag dat in het desbetreffende geval door de verzekering wordt uitbetaald.</p>
+      <p style="margin-top:0.75rem">De volledige Algemene Voorwaarden zijn op aanvraag beschikbaar via <a href="/cdn-cgi/l/email-protection#b6dfd8d0d9f6dac3d2d3c4d998d8da" style="color:var(--green)"><span class="__cf_email__" data-cfemail="5930373f3619352c3d3c2b36773735">[email&#160;protected]</span></a>.</p>
+    </div>
+    <button class="btn btn-green" style="margin-top:1.5rem;width:100%" onclick="closeModal('modal-av')">Sluiten</button>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════ JAVASCRIPT ═══════════════════════ -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // ── Page navigation ──
+  const pages = ['home', 'ondernemers', 'hubs', 'contact'];
+
+  function showPage(id) {
+    pages.forEach(p => {
+      document.getElementById('page-' + p).classList.remove('active');
+      const nav = document.getElementById('nav-' + p);
+      if (nav) nav.classList.remove('active');
+    });
+    document.getElementById('page-' + id).classList.add('active');
+    const active = document.getElementById('nav-' + id);
+    if (active) active.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // close mobile nav
+    document.getElementById('navLinks').classList.remove('open');
+  }
+
+  // ── Mobile nav ──
+  function toggleMobileNav() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+
+  // ── Modals ──
+  function openModal(id) {
+    document.getElementById(id).classList.add('open');
+  }
+
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('open');
+  }
+
+  // Close modal on overlay click
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === this) this.classList.remove('open');
+    });
+  });
+
+  // ── Form submissions ──
+  function submitContactForm(e) {
+    e.preventDefault();
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('contact-succe

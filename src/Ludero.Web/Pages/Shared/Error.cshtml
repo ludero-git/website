@@ -1,0 +1,15 @@
+@page
+@model ErrorModel
+@{
+    ViewData["Title"] = "Fout";
+}
+
+<section class="contact-section">
+  <div class="contact-grid" style="grid-template-columns:1fr; max-width:600px; text-align:center;">
+    <div>
+      <h1 class="contact-title">Er is iets <span>misgegaan</span></h1>
+      <p class="contact-subtitle">We konden de pagina niet laden. Probeer het opnieuw of ga terug naar de homepage.</p>
+      <a class="btn btn-green" asp-page="/Index">Terug naar home</a>
+    </div>
+  </div>
+</section>

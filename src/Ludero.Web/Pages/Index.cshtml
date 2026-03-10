@@ -1,0 +1,97 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+    ViewData["Description"] = "Ludero EMS geeft ondernemers lokale regie over hun energie-infrastructuur. Slim sturen, kosten besparen, doorgroeien.";
+}
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left fade-up">
+      <div class="hero-label">Energy Management System</div>
+      <h1 class="hero-title">
+        Lokale regie over<br /><em>jouw energie</em>
+      </h1>
+      <p class="hero-sub">
+        Wij geven jou als ondernemer de lokale regie over je energie-infrastructuur met ons EMS systeem. Slim sturen, kosten besparen, doorgroeien.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" asp-page="/Contact">Klaar om je energie slim te sturen?</a>
+        <a class="btn btn-outline" asp-page="/VoorOndernemers">Meer weten →</a>
+      </div>
+    </div>
+    <div class="hero-right fade-up">
+      <div class="hero-image-wrap">
+        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80&auto=format" alt="Zonnepanelen op bedrijfsdak" loading="lazy" />
+      </div>
+      <div class="hero-stat-card top">
+        <div class="stat-num">30%</div>
+        <div class="stat-label">Minder piekkosten</div>
+      </div>
+      <div class="hero-stat-card bottom">
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">Lokale sturing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Yellow: Problem statement -->
+<section class="yellow-section">
+  <div class="section-inner">
+    <div>
+      <span class="section-label" style="color:var(--green)">De uitdaging</span>
+      <h2>Elektrificatie gaat snel — maar jij bepaalt het tempo</h2>
+      <p style="margin-top:1rem"><strong>Laadpalen, warmtepompen, zonnepanelen, batterijen en nieuwe machines vragen steeds meer vermogen.</strong></p>
+      <p style="margin-top:0.75rem; color:#444">Zonder actieve sturing wordt energie een rem op je bedrijfsontwikkeling. Het Ludero EMS zorgt dat jij voorop blijft lopen — zonder je aansluiting te verzwaren.</p>
+      <div style="margin-top:2rem">
+        <a class="btn btn-green" asp-page="/VoorOndernemers">Bekijk onze oplossing</a>
+      </div>
+    </div>
+    <div class="yellow-img">
+      <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800&q=80&auto=format" alt="Zonnepanelen park" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- Feature cards -->
+<section class="features-section">
+  <div class="section-inner">
+    <div class="features-header">
+      <div class="section-label">Wat wij bieden</div>
+      <h2 class="section-title">Alles in één slim systeem</h2>
+    </div>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Piekbeheer &amp; loadbalancing</h3>
+        <p>Voorkom overschrijding van je vermogen en minimaliseer capaciteits- en piekkosten. Altijd binnen je gecontracteerd vermogen.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        </div>
+        <h3>Altijd inzicht</h3>
+        <p>Helder dashboard toont je verbruik, opwek, prijsontwikkelingen, capaciteit en status van al je installaties — real-time.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3>Vendor onafhankelijk</h3>
+        <p>Werkt met vrijwel alle merken laadpalen, omvormers, batterijen en warmtepompen. Geen vendor lock-in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="cta-banner">
+  <div class="section-inner" style="max-width:700px">
+    <h2>Klaar om je energie slim te sturen?</h2>
+    <a class="btn btn-primary" asp-page="/Contact">Neem contact op</a>
+  </div>
+</section>

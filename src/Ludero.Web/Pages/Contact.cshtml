@@ -1,0 +1,105 @@
+@page "/contact"
+@model ContactModel
+@{
+    ViewData["Title"] = "Contact";
+    ViewData["Description"] = "Neem contact op met Ludero B.V. voor meer informatie over ons EMS systeem of plan een vrijblijvende demo.";
+}
+
+<section class="contact-section">
+  <div class="contact-grid">
+    <div>
+      <h1 class="contact-title">Neem <span>contact</span><br/>met ons op</h1>
+      <p class="contact-subtitle">Klaar om de regie over je energie te nemen? Vul het formulier in en we nemen zo snel mogelijk contact op.</p>
+
+      @if (Model.Success)
+      {
+        <div class="success-msg show" id="contact-success">
+          <div class="success-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3>Bericht ontvangen!</h3>
+          <p>Bedankt voor uw bericht. We nemen binnen 1 werkdag contact met u op.</p>
+        </div>
+      }
+      else
+      {
+        <form id="contactForm" method="post">
+          @Html.AntiForgeryToken()
+
+          <div class="form-row">
+            <div class="form-group">
+              <label asp-for="Form.Name"></label>
+              <input asp-for="Form.Name" type="text" placeholder="Jan de Vries" />
+              <span asp-validation-for="Form.Name" class="field-validation-error"></span>
+            </div>
+            <div class="form-group">
+              <label asp-for="Form.Company"></label>
+              <input asp-for="Form.Company" type="text" placeholder="Uw bedrijfsnaam" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label asp-for="Form.Email"></label>
+              <input asp-for="Form.Email" type="email" placeholder="jan@bedrijf.nl" />
+              <span asp-validation-for="Form.Email" class="field-validation-error"></span>
+            </div>
+            <div class="form-group">
+              <label asp-for="Form.Phone"></label>
+              <input asp-for="Form.Phone" type="tel" placeholder="+31 6 12 34 56 78" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label asp-for="Form.Subject"></label>
+            <select asp-for="Form.Subject">
+              <option value="">Selecteer een onderwerp…</option>
+              <option>EMS voor mijn bedrijf</option>
+              <option>EMS voor Energy Hub / Bedrijventerrein</option>
+              <option>Demo aanvragen</option>
+              <option>Factsheet downloaden</option>
+              <option>Anders</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label asp-for="Form.Message"></label>
+            <textarea asp-for="Form.Message" placeholder="Vertel ons iets over uw situatie en hoe we u kunnen helpen…"></textarea>
+            <span asp-validation-for="Form.Message" class="field-validation-error"></span>
+          </div>
+          <button type="submit" class="btn btn-green" style="width:100%; padding:1rem; font-size:1rem">Verstuur bericht →</button>
+        </form>
+      }
+    </div>
+
+    <div>
+      <div class="contact-info-card">
+        <div class="contact-info">
+          <h3>📍 Adres</h3>
+          <p>Ludero B.V.<br/>Veersedijk 101<br/>3341 LL Hendrik-Ido-Ambacht<br/>Nederland</p>
+
+          <h3>📞 Telefoon</h3>
+          <p><a href="tel:0786821645">078 682 16 45</a></p>
+
+          <h3>✉️ E-mail</h3>
+          <p><a href="mailto:info@ludero.nl">info&#64;ludero.nl</a></p>
+
+          <h3>🏛️ KvK-nummer</h3>
+          <p>98897233</p>
+
+          <h3>💼 BTW-nummer</h3>
+          <p>NL868692141B01</p>
+
+          <h3>🕐 Bereikbaarheid</h3>
+          <p>Maandag – vrijdag<br/>08:30 – 17:30 uur</p>
+        </div>
+      </div>
+
+      <div style="margin-top:1.5rem; padding:1.5rem; border:2px solid var(--yellow); border-radius:14px;">
+        <div style="font-weight:700; font-size:0.95rem; color:var(--text); margin-bottom:0.4rem">Liever een demo plannen?</div>
+        <p style="font-size:0.88rem; color:#555; line-height:1.6">Wil je het Ludero EMS in actie zien? Plan een vrijblijvende online demo van 30 minuten.</p>
+        <button class="btn btn-green" style="margin-top:1rem; font-size:0.88rem; padding:0.7rem 1.4rem" type="button"
+          onclick="document.getElementById('Form_Subject').value='Demo aanvragen'; document.getElementById('Form_Message').focus()">
+          Demo aanvragen
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
