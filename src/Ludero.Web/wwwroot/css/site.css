@@ -17,7 +17,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: var(--text);
   background: var(--white);
   overflow-x: hidden;
@@ -65,7 +65,7 @@ body {
 }
 
 .logo-text .brand {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 1.5rem;
   color: var(--green);
@@ -196,9 +196,9 @@ body {
 }
 
 .hero-title {
-  font-family: 'Fraunces', serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 900;
-  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  font-size: clamp(2.4rem, 4.5vw, 3.75rem);
   line-height: 1.1;
   color: var(--white);
   margin-bottom: 1.5rem;
@@ -308,7 +308,7 @@ body {
 }
 
 .stat-num {
-  font-family: 'Fraunces', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   color: var(--green);
@@ -336,7 +336,7 @@ body {
   margin-bottom: 0.75rem;
 }
 .section-title {
-  font-family: 'Fraunces', serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   line-height: 1.15;
@@ -366,7 +366,7 @@ body {
 }
 
 .yellow-section h2 {
-  font-family: 'Fraunces', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 700;
   line-height: 1.2;
@@ -472,7 +472,7 @@ body {
 }
 
 .cta-banner h2 {
-  font-family: 'Fraunces', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: clamp(1.6rem, 2.5vw, 2.2rem);
   font-weight: 700;
   color: var(--white);
@@ -497,7 +497,7 @@ body {
 }
 
 .page-header h1 {
-  font-family: 'Fraunces', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 900;
   color: var(--blue);
@@ -593,7 +593,7 @@ body {
 }
 
 .hub-intro h2 {
-  font-family: 'Fraunces', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.6rem;
   font-weight: 700;
   color: var(--green);
@@ -659,7 +659,7 @@ body {
 }
 
 .contact-title {
-  font-family: 'Fraunces', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 700;
   color: var(--text);
@@ -784,7 +784,7 @@ body {
 .modal-close:hover { background: #ddd; }
 
 .modal h2 {
-  font-family: 'Fraunces', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
@@ -820,7 +820,7 @@ footer {
 }
 
 .footer-brand .brand-name {
-  font-family: 'Fraunces', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--white);
@@ -996,5 +996,6 @@ footer {
   margin: 0 auto 1rem;
 }
 .success-icon svg { color: var(--green); }
-.success-msg h3 { font-family: 'Fraunces', serif; font-size: 1.4rem; margin-bottom: 0.5rem; }
+.success-msg h3 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; margin-bottom: 0.5rem; }
 .success-msg p { font-size: 0.92rem; color: #666; }
+
