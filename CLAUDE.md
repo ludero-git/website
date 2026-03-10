@@ -104,4 +104,4 @@ Open/close is controlled by JS functions `openModal(id)` / `closeModal(id)` in `
 - Email `@` signs in Razor views must be escaped as `&#64;` in HTML attributes/href (e.g., `href="mailto:info&#64;ludero.nl"`)
 - The `RazorViewRenderer` needs the full path to the view: `/Pages/Emails/ViewName.cshtml`
 - `Factsheet.cshtml.cs` has no `.cshtml` view — it always redirects after POST
-- The `.slnx` extension is the new solution format (Visual Studio 2022 17.x+); if you need the classic `.sln`, run `dotnet sln migrate Ludero.slnx`
+- The solution file is `Ludero.sln` (classic format). If `dotnet new sln` ever regenerates it as `.slnx` (default on .NET 9+ SDK), delete the `.slnx` and recreate with `dotnet new sln --format sln -n Ludero` or write the classic format manually

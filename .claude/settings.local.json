@@ -6,7 +6,9 @@
       "Bash(dotnet sln Ludero.sln add src/Ludero.Web/Ludero.Web.csproj)",
       "Bash(dotnet --version)",
       "Bash(dotnet sln Ludero.slnx add src/Ludero.Web/Ludero.Web.csproj)",
-      "Bash(dotnet build src/Ludero.Web/Ludero.Web.csproj)"
+      "Bash(dotnet build src/Ludero.Web/Ludero.Web.csproj)",
+      "Bash(powershell -Command \"[System.Guid]::NewGuid\\(\\).ToString\\(\\).ToUpper\\(\\)\")",
+      "Bash(dotnet build Ludero.sln)"
     ]
   }
 }
