@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
+  @{
+    var canonicalBaseUrl = "https://www.ludero.nl";
+    var canonicalPath = Context.Request.Path.HasValue ? Context.Request.Path.Value! : "/";
+    var canonicalUrl = $"{canonicalBaseUrl}{canonicalPath}";
+  }
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>@(ViewData["Title"] != null ? ViewData["Title"] + " – " : "")Ludero – Mastering Your Energy</title>
   <meta name="description" content="@(ViewData["Description"] ?? "Ludero EMS geeft ondernemers en energiecoöperaties lokale regie over hun energie-infrastructuur. Slim sturen, kosten besparen, doorgroeien.")" />
+  <link rel="canonical" href="@canonicalUrl" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
