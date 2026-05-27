@@ -8,4 +8,9 @@
     <AssemblyName>Ludero.Web</AssemblyName>
   </PropertyGroup>
 
+
+  <ItemGroup>
+    <PackageReference Include="Markdig" Version="0.38.0" />
+  </ItemGroup>
+
 </Project>

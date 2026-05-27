@@ -1,0 +1,44 @@
+@page "/nieuws/{Slug}"
+@model Ludero.Web.Pages.Nieuws.DetailModel
+@{
+    ViewData["Title"] = Model.Article?.Title ?? "Artikel niet gevonden";
+    ViewData["Description"] = Model.Article?.Description ?? "";
+}
+
+@if (Model.Article is null)
+{
+    <div class="page-header">
+        <h1>Artikel niet gevonden</h1>
+        <p>Het gevraagde artikel bestaat niet of is verwijderd.</p>
+    </div>
+    <section class="nieuws-detail-section">
+        <div class="nieuws-detail-inner">
+            <div class="nieuws-detail-back">
+                <a class="btn btn-green" asp-page="/Nieuws/Index">&larr; Terug naar nieuws</a>
+            </div>
+        </div>
+    </section>
+}
+else
+{
+    <div class="page-header nieuws-detail-header">
+        <span class="label">@Model.Article.Date.ToString("d MMMM yyyy", new System.Globalization.CultureInfo("nl-NL"))</span>
+        <h1>@Model.Article.Title</h1>
+        <p>@Model.Article.Description</p>
+    </div>
+
+    <section class="nieuws-detail-section">
+        <div class="nieuws-detail-inner">
+            @if (!string.IsNullOrEmpty(Model.Article.Image))
+            {
+                <img class="nieuws-detail-hero-img" src="@Model.Article.Image" alt="@Model.Article.Title" loading="eager" />
+            }
+            <div class="nieuws-detail-content">
+                @Html.Raw(Model.Article.ContentHtml)
+            </div>
+            <div class="nieuws-detail-back">
+                <a class="btn btn-green" asp-page="/Nieuws/Index">&larr; Terug naar nieuws</a>
+            </div>
+        </div>
+    </section>
+}

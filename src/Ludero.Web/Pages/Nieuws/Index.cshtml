@@ -1,0 +1,40 @@
+@page "/nieuws"
+@model Ludero.Web.Pages.Nieuws.IndexModel
+@{
+    ViewData["Title"] = "Nieuws";
+    ViewData["Description"] = "Het laatste nieuws van Ludero over energiebeheer, netcongestie, laadinfrastructuur en slimme energiesturing voor ondernemers.";
+}
+
+<div class="page-header">
+    <span class="label">Nieuws &amp; Inzichten</span>
+    <h1>Alles over slim<br /><em>energiebeheer</em></h1>
+    <p>Praktische kennis, cases en updates over energiebeheer, netcongestie en slimme laadinfrastructuur.</p>
+</div>
+
+<section class="nieuws-section">
+    <div class="section-inner">
+        @if (!Model.Articles.Any())
+        {
+            <p>Er zijn nog geen artikelen gepubliceerd.</p>
+        }
+        else
+        {
+            <div class="nieuws-grid">
+                @foreach (var article in Model.Articles)
+                {
+                    <a class="nieuws-card" href="/nieuws/@article.Slug">
+                        <div class="nieuws-card-img">
+                            <img src="@article.Image" alt="@article.Title" loading="lazy" />
+                        </div>
+                        <div class="nieuws-card-body">
+                            <div class="nieuws-card-date">@article.Date.ToString("d MMMM yyyy", new System.Globalization.CultureInfo("nl-NL"))</div>
+                            <h2 class="nieuws-card-title">@article.Title</h2>
+                            <p class="nieuws-card-desc">@article.Description</p>
+                            <span class="nieuws-card-link">Lees meer &rarr;</span>
+                        </div>
+                    </a>
+                }
+            </div>
+        }
+    </div>
+</section>

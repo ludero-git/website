@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddHttpClient<IEmailService, PostmarkEmailService>();
 builder.Services.AddScoped<RazorViewRenderer>();
+builder.Services.AddScoped<NewsService>();
 builder.Services.Configure<PostmarkOptions>(builder.Configuration.GetSection("Postmark"));
 
 var app = builder.Build();
