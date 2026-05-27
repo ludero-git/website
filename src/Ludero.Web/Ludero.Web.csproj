@@ -13,4 +13,8 @@
     <PackageReference Include="Markdig" Version="0.38.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="Content\Nieuws\**\*.md" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+
 </Project>
