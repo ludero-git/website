@@ -18,6 +18,9 @@
       <a asp-page="/VoorEnergyHubs" class="@(currentPage == "/VoorEnergyHubs" ? "active" : "")">Voor Energy Hubs</a>
     </li>
     <li>
+      <a asp-page="/Nieuws/Index" class="@(currentPage.StartsWith("/Nieuws") ? "active" : "")">Nieuws</a>
+    </li>
+    <li>
       <a asp-page="/Contact" class="nav-cta @(currentPage == "/Contact" ? "active" : "")">Contact</a>
     </li>
   </ul>

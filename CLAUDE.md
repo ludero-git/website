@@ -14,6 +14,7 @@ Marketing website for **Ludero B.V.**, a Dutch Energy Management System (EMS) co
 
 - **ASP.NET Core 8 Razor Pages** — no MVC controllers; each page is `Pages/Pagename.cshtml` + `Pages/Pagename.cshtml.cs`
 - **Postmark HTTP API** — email sending via `HttpClient`, no Postmark SDK
+- **Markdig** (NuGet) — Markdown-to-HTML rendering for the news section
 - **Vanilla CSS** with CSS custom properties (`--green`, `--blue`, `--yellow`, etc.) defined at the top of `wwwroot/css/site.css`
 - **Vanilla JavaScript** — only modal open/close and mobile hamburger nav in `wwwroot/js/site.js`
 - **No frontend framework** — no React, Vue, Alpine, HTMX, etc.
@@ -35,6 +36,8 @@ Marketing website for **Ludero B.V.**, a Dutch Energy Management System (EMS) co
 | `/` | `Pages/Index.cshtml` |
 | `/voor-ondernemers` | `Pages/VoorOndernemers.cshtml` (has `@page "/voor-ondernemers"`) |
 | `/voor-energy-hubs` | `Pages/VoorEnergyHubs.cshtml` (has `@page "/voor-energy-hubs"`) |
+| `/nieuws` | `Pages/Nieuws/Index.cshtml` — news overview |
+| `/nieuws/{slug}` | `Pages/Nieuws/Detail.cshtml` — single article |
 | `/contact` | `Pages/Contact.cshtml` |
 | POST `/factsheet` | `Pages/Factsheet.cshtml.cs` (no view) |
 
@@ -96,6 +99,46 @@ Open/close is controlled by JS functions `openModal(id)` / `closeModal(id)` in `
 2. Create `Pages/NewPage.cshtml.cs` with `public class NewPageModel : PageModel`
 3. Add nav link to `Pages/Shared/_Navbar.cshtml`
 4. Add footer link if applicable to `Pages/Shared/_Footer.cshtml`
+
+---
+
+## News Section (Nieuws)
+
+The news/blog section is powered by Markdown files — no database required.
+
+### Content files
+- **Location:** `src/Ludero.Web/Content/Nieuws/*.md` — not web-accessible; served by `NewsService` via `IWebHostEnvironment.ContentRootPath`
+- **Slug:** the filename without extension becomes the URL slug (e.g. `peak-shaving.md` → `/nieuws/peak-shaving`)
+- **Sort order:** articles are shown newest-first by `date` frontmatter field
+
+### Adding a new article
+Create a `.md` file in `Content/Nieuws/` with this exact frontmatter structure:
+
+```markdown
+---
+title: Jouw artikeltitel
+date: 2026-05-06
+description: Korte samenvatting (shown on card and in banner).
+image: https://...
+---
+
+## Inhoud begint hier
+```
+
+All four frontmatter keys are required. Markdown body supports headings, lists, bold, blockquotes, links, etc. (full CommonMark + Markdig advanced extensions).
+
+### Service
+- **`Services/NewsService.cs`** — reads and parses `.md` files, exposes `GetAllAsync()` and `GetBySlugAsync(slug)`
+- Frontmatter is parsed by a hand-written flat `key: value` parser (no YamlDotNet dependency)
+- Markdown body is rendered to HTML by **Markdig** with `UseAdvancedExtensions()`
+- No caching — files are read fresh on every request
+
+### Model
+- **`Models/NewsArticle.cs`** — `Slug`, `Title`, `Date`, `Description`, `Image`, `ContentHtml`
+
+### CSS classes
+- `.nieuws-grid` / `.nieuws-card` — 3-col card grid on the overview page (collapses to 2-col at 1024px, 1-col at 768px)
+- `.nieuws-detail-content` — article body typography (h2, h3, p, ul, ol, blockquote with yellow left border)
 
 ---
 
