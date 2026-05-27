@@ -7,6 +7,8 @@ COPY . .
 RUN dotnet publish "src/Ludero.Web/Ludero.Web.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS final
+RUN apk add --no-cache icu-libs
+ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
 WORKDIR /app
 EXPOSE 8080
 COPY --from=build /app/publish .
