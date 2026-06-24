@@ -450,6 +450,16 @@ body {
   margin-bottom: 1.5rem;
 }
 
+.cta-banner p {
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.cta-banner p a {
+  color: var(--white);
+  text-decoration: underline;
+}
+
 /* ─── PAGE HEADER ─── */
 .page-header {
   background: var(--yellow);

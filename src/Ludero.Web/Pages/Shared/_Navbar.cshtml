@@ -21,6 +21,9 @@
       <a asp-page="/Nieuws/Index" class="@(currentPage.StartsWith("/Nieuws") ? "active" : "")">Nieuws</a>
     </li>
     <li>
+      <a asp-page="/Vacatures" class="@(currentPage == "/Vacatures" ? "active" : "")">Vacatures</a>
+    </li>
+    <li>
       <a asp-page="/Contact" class="nav-cta @(currentPage == "/Contact" ? "active" : "")">Contact</a>
     </li>
   </ul>
