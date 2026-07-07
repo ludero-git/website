@@ -22,7 +22,7 @@
             <div class="nieuws-grid">
                 @foreach (var article in Model.Articles)
                 {
-                    <a class="nieuws-card" href="/nieuws/@article.Slug">
+                    <a class="nieuws-card" href="/nieuws/@article.Slug" aria-label="Lees meer over @article.Title">
                         <div class="nieuws-card-img">
                             <img src="@article.Image" alt="@article.Title" loading="lazy" />
                         </div>
