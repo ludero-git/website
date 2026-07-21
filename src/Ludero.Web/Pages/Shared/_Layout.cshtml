@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  @{
-    var canonicalBaseUrl = "https://www.ludero.nl";
-    var canonicalPath = Context.Request.Path.HasValue ? Context.Request.Path.Value! : "/";
-    var canonicalUrl = $"{canonicalBaseUrl}{canonicalPath}";
-  }
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>@(ViewData["Title"] != null ? ViewData["Title"] + " – " : "")Ludero – Mastering Your Energy</title>
-  <meta name="description" content="@(ViewData["Description"] ?? "Ludero EMS geeft ondernemers en energiecoöperaties lokale regie over hun energie-infrastructuur. Slim sturen, kosten besparen, doorgroeien.")" />
-  <link rel="canonical" href="@canonicalUrl" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-  <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
-  <script defer data-domain="ludero.nl" src="https://plausible.server.bitfox.nl/js/script.js"></script>
+    @{
+        var canonicalBaseUrl = "https://www.ludero.nl";
+        var canonicalPath = Context.Request.Path.HasValue ? Context.Request.Path.Value! : "/";
+        var canonicalUrl = $"{canonicalBaseUrl}{canonicalPath}";
+    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@(ViewData["Title"] != null ? ViewData["Title"] + " – " : "")Ludero – Mastering Your Energy</title>
+    <meta name="description" content="@(ViewData["Description"] ?? "Ludero EMS geeft ondernemers en energiecoöperaties lokale regie over hun energie-infrastructuur. Slim sturen, kosten besparen, doorgroeien.")" />
+    <link rel="canonical" href="@canonicalUrl" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
+    <script defer data-domain="ludero.nl" src="https://plausible.server.bitfox.nl/js/script.js"></script>
 </head>
 <body>
-  <partial name="_Navbar" />
+    <partial name="_Navbar" />
 
-  @RenderBody()
+    @RenderBody()
 
-  <partial name="_Footer" />
+    <partial name="_Footer" />
 
-  <partial name="_ModalFactsheet" />
-  <partial name="_ModalCookies" />
-  <partial name="_ModalPrivacy" />
+    <partial name="_ModalFactsheet" />
+    <partial name="_ModalCookies" />
+    <partial name="_ModalPrivacy" />
 
-  <script src="~/js/site.js" asp-append-version="true"></script>
-  @await RenderSectionAsync("Scripts", required: false)
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script async defer src="https://cdn.jsdelivr.net/npm/altcha@3.2.1/dist/main/altcha.min.js" type="module"></script>
+    <script async defer src="https://cdn.jsdelivr.net/gh/altcha-org/altcha/dist/i18n/nl.min.js" type="module"></script>
 </body>
 </html>
