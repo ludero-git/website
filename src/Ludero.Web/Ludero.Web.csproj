@@ -10,6 +10,7 @@
 
 
   <ItemGroup>
+    <PackageReference Include="Ixnas.AltchaNet" Version="1.2.0" />
     <PackageReference Include="Markdig" Version="0.38.0" />
   </ItemGroup>
 
