@@ -1,5 +1,6 @@
 @page "/nieuws/{Slug}"
 @model Ludero.Web.Pages.Nieuws.DetailModel
+@using Ludero.Web.Services
 @{
     ViewData["Title"] = Model.Article?.Title ?? "Artikel niet gevonden";
     ViewData["Description"] = Model.Article?.Description ?? "";
@@ -31,7 +32,36 @@ else
         <div class="nieuws-detail-inner">
             @if (!string.IsNullOrEmpty(Model.Article.Image))
             {
-                <img class="nieuws-detail-hero-img" src="@Model.Article.Image" alt="@Model.Article.Title" loading="eager" />
+                var (webpSrcSet, fallbackSrcSet, fallbackSrc, fallbackType, placeholderSrc, placeholderWebpSrc) = ImageSrcSetHelper.Build(Model.Article);
+                var sizes = "(max-width: 768px) 100vw, 1200px";
+
+                <div class="nieuws-detail-hero-img-wrap">
+                    @if (!string.IsNullOrEmpty(placeholderWebpSrc))
+                    {
+                        <picture>
+                            <source type="image/webp" srcset="@placeholderWebpSrc" />
+                            <img class="img-placeholder" src="@placeholderSrc" alt="" aria-hidden="true" />
+                        </picture>
+                    }
+                    else
+                    {
+                        <img class="img-placeholder" src="@placeholderSrc" alt="" aria-hidden="true" />
+                    }
+                    @if (!string.IsNullOrEmpty(webpSrcSet))
+                    {
+                        <picture>
+                            <source type="image/webp" srcset="@webpSrcSet" sizes="@sizes" />
+                            <source type="@fallbackType" srcset="@fallbackSrcSet" sizes="@sizes" />
+                            <img class="nieuws-detail-hero-img is-loading" src="@fallbackSrc" alt="@Model.Article.Title" loading="eager"
+                                onload="this.classList.remove('is-loading')" />
+                        </picture>
+                    }
+                    else
+                    {
+                        <img class="nieuws-detail-hero-img is-loading" src="@Model.Article.Image" alt="@Model.Article.Title" loading="eager"
+                            onload="this.classList.remove('is-loading')" />
+                    }
+                </div>
             }
             <div class="nieuws-detail-content">
                 @Html.Raw(Model.Article.ContentHtml)

@@ -2,7 +2,9 @@
 title: Wat levert een EMS op?
 date: 2026-07-15
 description: Een Energy Management Systeem levert meer op dan alleen inzicht in energieverbruik. Door dagelijks automatisch te sturen op verbruik, opwek en opslag worden kosten beperkt en ontstaat meer ruimte om te groeien.
-image: /images/wat-levert-ems-op.png
+image: /images/news/wat-levert-ems-op.png
+image_exts: webp, png
+image_widths: 400, 1200, 1600
 author: Machteld+Lisa
 ---
 ## Geen grip op energie kost vaak meer

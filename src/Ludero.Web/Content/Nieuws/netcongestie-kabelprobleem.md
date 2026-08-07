@@ -2,7 +2,9 @@
 title: Netcongestie is niet alleen een kabelprobleem
 date: 2026-06-05
 description: In veel regio’s loopt het stroomnet tegen zijn grenzen aan. Door slimmer te meten, sturen en balanceren kan er ruimte gecreëerd worden binnen de bestaande aansluitingen.
-image: /images/netcongestie-kabelprobleem.png
+image: /images/news/netcongestie-kabelprobleem.png
+image_exts: webp, png
+image_widths: 400, 1200, 1563
 author: Machteld+Lisa
 ---
 

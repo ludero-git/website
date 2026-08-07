@@ -2,7 +2,9 @@
 title: Ludero bij de Duurzaamheidsfabriek
 date: 2026-06-25
 description: Tijdens de Deep Dive over batterijen, energieopslag en slimme energiesturing bij de Duurzaamheidsfabriek liet Ludero zien hoe een EMS losse energie-assets laat samenwerken als één team.
-image: /images/duurzaamheidsfabriek.png
+image: /images/news/duurzaamheidsfabriek.png
+image_exts: webp, png
+image_widths: 400, 1200
 author: Machteld+Lisa
 ---
 

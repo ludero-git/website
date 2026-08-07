@@ -2,7 +2,9 @@
 title: Ludero officieel CSP bij TenneT
 date: 2026-05-21
 description: Ludero is nu officieel Congestion Service Provider (CSP) bij TenneT. Daardoor kunnen we verder bijdragen aan het ontlasten van het elektriciteitsnet.
-image: /images/ludero-csp.png
+image: /images/news/ludero-csp.png
+image_exts: webp, png
+image_widths: 400, 500
 author: Machteld+Lisa
 ---
 ## Ontlasten van het elektriciteitsnet
