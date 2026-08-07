@@ -2,7 +2,9 @@
 title: Mastering your energy
 date: 2026-05-06
 description: Netcongestie en piekbelasting maken het voor ondernemers steeds lastiger om te groeien, verduurzamen of elektrificeren. Met ons Energy Management System benut je de bestaande aansluiting slimmer.
-image: /images/mastering-your-energy.png
+image: /images/news/mastering-your-energy.png
+image_exts: webp, png
+image_widths: 400, 1200
 author: Machteld+Lisa
 ---
 ## Meer regie over je eigen energie

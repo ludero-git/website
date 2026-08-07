@@ -2,7 +2,9 @@
 title: Minder piekbelasting
 date: 2026-06-01
 description: Slim energiemanagement helpt bedrijven om piekbelasting te voorkomen en vermogen beter te verdelen. Met het Ludero EMS worden installaties automatisch afgestemd op de beschikbare capaciteit, zodat kosten dalen.
-image: /images/voorkom-pieken.png
+image: /images/news/voorkom-pieken.png
+image_exts: webp, png
+image_widths: 400, 1200, 1563
 author: Machteld+Lisa
 ---
 ## Voorkom pieken, verlaag kosten

@@ -2,7 +2,9 @@
 title: Maak jouw energiepuzzel compleet
 date: 2026-07-29
 description: Kwartierdata laten alleen zien wat er via de aansluiting binnenkomt en weggaat. Ontdek wat er áchter de meter gebeurt en krijg inzicht in al je energie-assets.
-image: /images/energiepuzzel.png
+image: /images/news/energiepuzzel.png
+image_exts: webp, png
+image_widths: 400, 1200, 1563
 author: Machteld+Lisa
 ---
 ## Meer inzicht achter de meter

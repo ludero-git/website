@@ -2,7 +2,9 @@
 title: Ludero in Weekblad De Brug
 date: 2026-07-22
 description: Ludero staat in Weekblad De Brug! In het artikel lees je hoe onze samenwerking ontstond en hoe we met slim energiemanagement ondernemers helpen om meer grip te krijgen op hun energiegebruik.
-image: /images/de-brug.png
+image: /images/news/de-brug.png
+image_exts: webp, png
+image_widths: 400, 1200, 6400
 author: Machteld+Lisa
 ---
 ## Drie ondernemers, één idee. Ludero, de oplossing voor energiemanagement.

@@ -2,7 +2,9 @@
 title: Start pilot Antoniapolder
 date: 2026-06-16
 description: Zes bedrijven op bedrijventerrein Antoniapolder starten samen met Energiecoöperatie Antoniapolder en Ludero een pilot rond slim energiemanagement. 
-image: /images/pilot.png
+image: /images/news/pilot.png
+image_exts: webp, png
+image_widths: 400, 1200, 1280
 author: Machteld+Lisa
 ---
 ## Samen slimmer omgaan met beschikbare energie

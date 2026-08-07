@@ -2,7 +2,9 @@
 title: Peak shaving als oplossing voor netcongestie
 date: 2026-05-21
 description: Netcongestie treft steeds meer bedrijven in Nederland. Ontdek hoe peak shaving met het Ludero EMS je helpt om binnen je aansluitcapaciteit te blijven, zonder te wachten op een netuitbreiding.
-image: /images/31.png
+image: /images/news/31.png
+image_exts: webp, png
+image_widths: 400, 1200
 author: Robert van der Giessen
 ---
 

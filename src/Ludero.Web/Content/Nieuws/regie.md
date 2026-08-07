@@ -2,7 +2,9 @@
 title: Energiemanagement draait om regie
 date: 2026-07-09
 description: Een goed Energy Management Systeem doet meer dan meten: het verbindt en stuurt alle energie-installaties achter de meter slim aan. Zo benut je beschikbare capaciteit beter en houd je grip op verbruik, opwek, opslag en vermogen.
-image: /images/regie.png
+image: /images/news/regie.png
+image_exts: webp, png
+image_widths: 400, 1200, 1280
 author: Machteld+Lisa
 ---
 # Van losse installaties naar één slim energiesysteem

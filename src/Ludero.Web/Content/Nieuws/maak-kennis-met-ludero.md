@@ -2,7 +2,9 @@
 title: Maak kennis met Ludero
 date: 2026-06-30
 description: Achter elke slimme oplossing staat een team dat samenwerkt, meedenkt en elkaar versterkt. Tijdens ons teamuitje namen we bewust tijd voor elkaar: geen dashboards of energiedata, maar gezelligheid, verbinding en heel veel plezier.
-image: /images/maak-kennis-met-ludero.png
+image: /images/news/maak-kennis-met-ludero.png
+image_exts: webp, png
+image_widths: 400, 1200, 6400
 author: Machteld+Lisa
 ---
 ## Energie sturen we met technologie, impact maken we met mensen.

@@ -1,5 +1,6 @@
 @page "/nieuws"
 @model Ludero.Web.Pages.Nieuws.IndexModel
+@using Ludero.Web.Services
 @{
     ViewData["Title"] = "Nieuws";
     ViewData["Description"] = "Het laatste nieuws van Ludero over energiebeheer, netcongestie, laadinfrastructuur en slimme energiesturing voor ondernemers.";
@@ -22,9 +23,36 @@
             <div class="nieuws-grid">
                 @foreach (var article in Model.Articles)
                 {
+                    var (webpSrcSet, fallbackSrcSet, fallbackSrc, fallbackType, placeholderSrc, placeholderWebpSrc) = ImageSrcSetHelper.Build(article);
+                    var sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px";
+
                     <a class="nieuws-card" href="/nieuws/@article.Slug" aria-label="Lees meer over @article.Title">
                         <div class="nieuws-card-img">
-                            <img src="@article.Image" alt="@article.Title" loading="lazy" />
+                            @if (!string.IsNullOrEmpty(placeholderWebpSrc))
+                            {
+                                <picture>
+                                    <source type="image/webp" srcset="@placeholderWebpSrc" />
+                                    <img class="img-placeholder" src="@placeholderSrc" alt="" aria-hidden="true" />
+                                </picture>
+                            }
+                            else
+                            {
+                                <img class="img-placeholder" src="@placeholderSrc" alt="" aria-hidden="true" />
+                            }
+                            @if (!string.IsNullOrEmpty(webpSrcSet))
+                            {
+                                <picture>
+                                    <source type="image/webp" srcset="@webpSrcSet" sizes="@sizes" />
+                                    <source type="@fallbackType" srcset="@fallbackSrcSet" sizes="@sizes" />
+                                    <img class="is-loading" src="@fallbackSrc" alt="@article.Title" loading="lazy"
+                                        onload="this.classList.remove('is-loading')" />
+                                </picture>
+                            }
+                            else
+                            {
+                                <img class="is-loading" src="@article.Image" alt="@article.Title" loading="lazy"
+                                    onload="this.classList.remove('is-loading')" />
+                            }
                         </div>
                         <div class="nieuws-card-body">
                             <div class="nieuws-card-date">@article.Date.ToString("d MMMM yyyy", new System.Globalization.CultureInfo("nl-NL"))</div>

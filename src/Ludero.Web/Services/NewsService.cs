@@ -77,11 +77,44 @@ public class NewsService
         return (meta, body);
     }
 
+    private static List<string> ParseStringList(string? raw)
+    {
+        if (string.IsNullOrWhiteSpace(raw))
+            return [];
+
+        var values = new List<string>();
+        foreach (var item in raw.Split(',', StringSplitOptions.RemoveEmptyEntries))
+        {
+            var value = item.Trim();
+            if (value.Length == 0)
+                continue;
+
+            values.Add(value);
+        }
+
+        return values;
+    }
+
+    private static List<int> ParseIntList(string? raw)
+    {
+        var values = new List<int>();
+
+        foreach (var item in ParseStringList(raw))
+        {
+            if (int.TryParse(item, out var number))
+                values.Add(number);
+        }
+
+        return values;
+    }
+
     private static NewsArticle ToArticle(string slug, Dictionary<string, string> meta, string htmlContent)
     {
         meta.TryGetValue("title", out var title);
         meta.TryGetValue("description", out var description);
         meta.TryGetValue("image", out var image);
+        meta.TryGetValue("image_exts", out var imageExtsRaw);
+        meta.TryGetValue("image_widths", out var imageWidthsRaw);
 
         DateOnly date = DateOnly.MinValue;
         if (meta.TryGetValue("date", out var dateStr))
@@ -94,6 +127,8 @@ public class NewsService
             Date        = date,
             Description = description ?? "",
             Image       = image ?? "",
+            ImageExts   = ParseStringList(imageExtsRaw),
+            ImageWidths = ParseIntList(imageWidthsRaw),
             ContentHtml = htmlContent,
         };
     }
