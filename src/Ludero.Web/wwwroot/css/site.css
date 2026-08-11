@@ -1203,3 +1203,173 @@ footer {
   .nieuws-section { padding: 48px 1.5rem 64px; }
   .nieuws-detail-section { padding: 40px 1.5rem 64px; }
 }
+
+/* ─── OUTLINE DETAIL ─── */
+.outline-detail-header h1 {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.outline-detail-section {
+  padding: 56px 2.5rem 80px;
+  background: var(--white);
+}
+
+.outline-detail-inner {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.outline-detail-content {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+
+/* Headings */
+
+.outline-detail-content h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 2.25rem 0 0.75rem;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.outline-detail-content h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 1.75rem 0 0.5rem;
+  line-height: 1.3;
+}
+
+.outline-detail-content h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 1.5rem 0 0.5rem;
+  line-height: 1.4;
+}
+
+
+/* Text */
+
+.outline-detail-content p {
+  margin-bottom: 1.25rem;
+}
+
+.outline-detail-content strong {
+  font-weight: 700;
+  color: var(--text);
+}
+
+
+/* Lists */
+
+.outline-detail-content ul,
+.outline-detail-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.outline-detail-content li {
+  margin-bottom: 0.4rem;
+  line-height: 1.75;
+}
+
+
+/* Quotes */
+
+.outline-detail-content blockquote {
+  border-left: 4px solid var(--yellow);
+  background: #fdf9f0;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #444;
+}
+
+.outline-detail-content blockquote p {
+  margin-bottom: 0;
+}
+
+
+/* Links */
+
+.outline-detail-content a {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
+.outline-detail-content a:hover {
+  color: var(--blue-light);
+}
+
+
+/* Images inside page content */
+
+.outline-detail-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 2rem 0;
+  border-radius: 12px;
+}
+
+
+/* Tables */
+
+.outline-detail-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0 2rem;
+}
+
+.outline-detail-content th,
+.outline-detail-content td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #e8e8e4;
+  text-align: left;
+  vertical-align: top;
+}
+
+.outline-detail-content th {
+  font-weight: 700;
+  color: var(--text);
+  background: var(--gray);
+}
+
+
+/* Horizontal rule */
+
+.outline-detail-content hr {
+  border: 0;
+  border-top: 1px solid #e8e8e4;
+  margin: 2.5rem 0;
+}
+
+
+/* ─── OUTLINE RESPONSIVE ─── */
+
+@media (max-width: 768px) {
+  .outline-detail-section {
+    padding: 40px 1.5rem 64px;
+  }
+
+  .outline-detail-content h2 {
+    font-size: 1.35rem;
+  }
+
+  .outline-detail-content table {
+    font-size: 0.9rem;
+  }
+}

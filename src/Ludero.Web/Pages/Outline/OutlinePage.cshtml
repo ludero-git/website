@@ -1,0 +1,42 @@
+@page "/{path}"
+@model Ludero.Web.Pages.Outline.OutlinePageModel
+
+@using System.Globalization
+
+@{
+    ViewData["Title"] = Model.PageObject?.Title ?? "Pagina niet gevonden";
+    ViewData["Description"] = Model.PageObject?.Description ?? "";
+}
+
+@if (Model.PageObject is null)
+{
+    <div class="page-header">
+        <h1>Pagina niet gevonden</h1>
+        <p>De gevraagde pagina bestaat niet of is verwijderd.</p>
+    </div>
+}
+else
+{
+    <div class="page-header outline-detail-header">
+        @if (Model.PageObject.LastUpdated.HasValue)
+        {
+            <span class="label">
+                Laatst bijgewerkt:
+                @Model.PageObject.LastUpdated.Value.ToString(
+                    "d MMMM yyyy",
+                    new CultureInfo("nl-NL"))
+            </span>
+        }
+
+        <h1>@Model.PageObject.Title</h1>
+        <p>@Model.PageObject.Description</p>
+    </div>
+
+    <section class="outline-detail-section">
+        <div class="outline-detail-inner">
+            <div class="outline-detail-content">
+                @Html.Raw(Model.PageObject.ContentHtml)
+            </div>
+        </div>
+    </section>
+}

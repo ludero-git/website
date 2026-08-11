@@ -1,5 +1,6 @@
 @{
     var currentPage = ViewContext.RouteData.Values["page"]?.ToString() ?? string.Empty;
+    var currentPath = ViewContext.RouteData.Values["path"]?.ToString() ?? string.Empty;
 }
 
 <nav class="navbar" id="navbar">
@@ -17,6 +18,9 @@
     <li>
       <a asp-page="/VoorEnergyHubs" class="@(currentPage == "/VoorEnergyHubs" ? "active" : "")">Voor Energy Hubs</a>
     </li>
+    @* <li>
+      <a asp-page="/Outline/OutlinePage" asp-route-path="hardware" class="@(currentPath.Equals("hardware", StringComparison.OrdinalIgnoreCase) ? "active" : "")">Ondersteunde Hardware</a>
+    </li> *@
     <li>
       <a asp-page="/Nieuws/Index" class="@(currentPage.StartsWith("/Nieuws") ? "active" : "")">Nieuws</a>
     </li>
