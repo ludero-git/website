@@ -4,22 +4,9 @@ using Ludero.Web.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages();
-builder.Services.AddControllers();
 builder.Services.AddHttpClient<IEmailService, PostmarkEmailService>();
 builder.Services.AddScoped<RazorViewRenderer>();
 builder.Services.AddScoped<NewsService>();
-builder.Services.AddSingleton<OutlineService>();
-
-builder.Services.AddHttpClient("OutlineApi", client =>
-{
-    client.BaseAddress = new Uri(
-        builder.Configuration["Outline:BaseUrl"]!);
-
-    client.DefaultRequestHeaders.Add(
-        "Authorization",
-        $"Bearer {builder.Configuration["Outline:ApiKey"]}");
-});
-
 builder.Services.Configure<PostmarkOptions>(builder.Configuration.GetSection("Postmark"));
 
 builder.Services.AddMemoryCache();
@@ -48,6 +35,5 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
-app.MapControllers();
 
 app.Run();
