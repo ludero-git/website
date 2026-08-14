@@ -154,8 +154,11 @@ public class OutlineWebhookController : ControllerBase
             if (key.Equals("t", StringComparison.OrdinalIgnoreCase))
                 timestamp = value;
 
-            if (key.Equals("v1", StringComparison.OrdinalIgnoreCase))
+            if (key.Equals("s", StringComparison.OrdinalIgnoreCase) ||
+            key.Equals("v1", StringComparison.OrdinalIgnoreCase))
+            {
                 providedSignature = value;
+            }
         }
 
         if (string.IsNullOrWhiteSpace(timestamp) ||
