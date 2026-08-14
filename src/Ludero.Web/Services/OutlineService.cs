@@ -15,6 +15,7 @@ public class OutlineService
     private static readonly MarkdownPipeline _pipeline =
         new MarkdownPipelineBuilder()
             .UseAdvancedExtensions()
+            .UseCustomContainers()
             .Build();
 
     public OutlineService(IConfiguration config, IHttpClientFactory httpClientFactory)

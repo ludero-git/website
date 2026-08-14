@@ -1369,7 +1369,86 @@ footer {
     font-size: 1.35rem;
   }
 
-  .outline-detail-content table {
-    font-size: 0.9rem;
-  }
+    .outline-detail-content table {
+        font-size: 0.9rem;
+    }
+}
+
+/* ─── DATATABLES OVERRIDES ─── */
+/* Responsive Table Container */
+.datatable-wrapper .datatable-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Search Input */
+.datatable-wrapper .datatable-input {
+    border: 1.5px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+    .datatable-wrapper .datatable-input:focus {
+        border-color: var(--green);
+    }
+
+/* Records per page Dropdown */
+.datatable-wrapper .datatable-selector {
+    border: 1.5px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+    .datatable-wrapper .datatable-selector:focus {
+        border-color: var(--green);
+    }
+
+/* Pagination */
+.datatable-wrapper .datatable-pagination button {
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+
+    .datatable-wrapper .datatable-pagination button:hover {
+        background-color: var(--gray);
+    }
+
+.datatable-wrapper .datatable-pagination .datatable-active button,
+.datatable-wrapper .datatable-pagination .datatable-active button:focus,
+.datatable-wrapper .datatable-pagination .datatable-active button:hover {
+    background-color: var(--green);
+    color: var(--white);
+    cursor: default;
+}
+
+/* Table Sorter Icons & Borders integration */
+.datatable-wrapper .datatable-table {
+    margin-bottom: 0;
+}
+
+    .datatable-wrapper .datatable-table th {
+        border-bottom: 2px solid #e8e8e4;
+    }
+
+.datatable-wrapper .datatable-sorter::before,
+.datatable-wrapper .datatable-sorter::after {
+    opacity: 0.3;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .datatable-wrapper .datatable-dropdown,
+    .datatable-wrapper .datatable-search {
+        float: none;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .datatable-wrapper .datatable-input {
+        width: 100%;
+    }
 }

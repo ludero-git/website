@@ -7,6 +7,40 @@
     ViewData["Title"] = Model.PageObject?.Title ?? "Pagina niet gevonden";
     ViewData["Description"] = Model.PageObject?.Description ?? "";
 }
+<link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
+
+<style>
+    div.info {
+        border-left: 4px solid blue;
+        padding: 1em;
+        background: #f0f8ff;
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+
+    div.success {
+        border-left: 4px solid green;
+        padding: 1em;
+        background: #f0fff0;
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+
+    div.error {
+        border-left: 4px solid red;
+        padding: 1em;
+        background: #fff0f0;
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+</style>
 
 @if (Model.PageObject is null)
 {
@@ -40,3 +74,17 @@ else
         </div>
     </section>
 }
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const tables = document.querySelectorAll(".outline-detail-section table");
+    
+    tables.forEach(table => {
+        new simpleDatatables.DataTable(table, {
+            searchable: true,
+            sortable: true,
+            perPage: 20
+        });
+    });
+});
+</script>
