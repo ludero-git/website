@@ -1099,6 +1099,15 @@ footer {
   color: #333;
 }
 
+.nieuws-detail-content img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 2rem 0;
+}
+
 .nieuws-detail-content h2 {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.55rem;
