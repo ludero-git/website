@@ -382,6 +382,83 @@ body {
   gap: 1.5rem;
 }
 
+.cards-partner-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.partner-timeline {
+  list-style: none;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+}
+
+.partner-timeline::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 28px;
+  bottom: 28px;
+  width: 2px;
+  background: var(--green);
+  opacity: 0.25;
+}
+
+.partner-timeline li {
+  position: relative;
+  padding-bottom: 1.25rem;
+}
+
+.partner-timeline li:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  position: relative;
+}
+
+.timeline-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 50px;
+  height: 50px;
+  border: 2px solid var(--green);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--green);
+  font-size: 0.85rem;
+  font-weight: 800;
+  z-index: 1;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.partner-timeline li:hover .timeline-number {
+  background: var(--green);
+  color: var(--white);
+}
+
+.timeline-step > div:last-child {
+  flex: 1;
+  padding: 0.25rem 0 1rem;
+}
+
+.timeline-step h3 {
+  margin: 0 0 0.4rem;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.timeline-step p {
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
 .card {
   background: var(--white);
   border: 1.5px solid #e8e8e4;
@@ -421,6 +498,16 @@ body {
 }
 
 .card-icon svg { width: 26px; height: 26px; color: var(--blue); }
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  
+  & h3 {
+    margin-top: -1.5rem;
+  }
+}
 
 .card h3 {
   font-size: 1.05rem;
@@ -659,6 +746,33 @@ body {
 }
 
 .form-group { margin-bottom: 1.2rem; }
+
+.partner-focus-list {
+  border: 0;
+  padding: 0;
+}
+
+.partner-focus-list legend {
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 0.4rem;
+}
+
+.partner-focus-list label {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0.5rem 0;
+  font-size: 0.92rem;
+  color: var(--text);
+}
+
+.form-group.partner-focus-list input[type="checkbox"] {
+  width: auto;
+  padding: 0;
+  accent-color: var(--green);
+}
 
 .form-group label {
   display: block;
