@@ -7,13 +7,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Ludero.Web.Pages;
 
-public class VoorPartnerModel : PageModel
+public class VoorPartnersModel : PageModel
 {
     private readonly IEmailService _emailService;
     private readonly AltchaService _altchaService;
     private readonly JsonSerializerOptions _jsonOptions = new() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
 
-    public VoorPartnerModel(IEmailService emailService, AltchaService altchaService)
+    public VoorPartnersModel(IEmailService emailService, AltchaService altchaService)
     {
         _emailService = emailService;
         _altchaService = altchaService;
