@@ -3,6 +3,8 @@ title: De vakantie is voorbij, de laadpalen weer actief
 description: Na de vakantie komt iedereen weer terug naar kantoor en draaien ook de laadpalen weer volop. Met een EMS benut je zonnestroom optimaal en krijg je inzicht in waar je energie vandaan komt en waar die naartoe gaat. 
 date: 2026-08-26
 image: /images/vakantie-voorbij.png
+image_exts: webp, png
+image_widths: 400, 1200, 3750
 author: Machteld+Lisa
 ---
 ## Zoveel mogelijk laden met de zon
