@@ -1,0 +1,24 @@
+@page "{statusCode?}"
+@model ErrorModel
+@{
+    var isNotFound = Model.HttpStatusCode == StatusCodes.Status404NotFound;
+    ViewData["Title"] = isNotFound ? "Pagina niet gevonden" : "Fout";
+}
+
+<section class="error-section">
+  <div class="error-content">
+    <div>
+      @if (isNotFound)
+      {
+        <h1 class="error-title">Pagina niet <span>gevonden</span></h1>
+        <p class="error-subtitle">De pagina die je zoekt bestaat niet (meer). Gebruik de knop hieronder om terug te gaan naar de homepage.</p>
+      }
+      else
+      {
+        <h1 class="error-title">Er is iets <span>misgegaan</span></h1>
+        <p class="error-subtitle">We konden de pagina niet laden. Probeer het opnieuw of ga terug naar de homepage.</p>
+      }
+      <a class="btn btn-green" asp-page="/Index">Terug naar home</a>
+    </div>
+  </div>
+</section>
