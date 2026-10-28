@@ -21,6 +21,9 @@ body {
   color: var(--text);
   background: var(--white);
   overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* ─── NAVBAR ─── */
@@ -718,6 +721,42 @@ body {
   padding: 100px 2.5rem 80px;
 }
 
+.error-section {
+  flex: 1 0 auto;
+  width: 100%;
+  min-height: 430px;
+  padding: 120px 2.5rem 80px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.error-content {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.error-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+  line-height: 1.1;
+}
+
+.error-title span { color: var(--green); }
+
+.error-subtitle {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
 .contact-grid {
   max-width: 1000px;
   margin: 0 auto;
@@ -1059,6 +1098,10 @@ footer {
 
   .page-header { padding: 100px 1.5rem 48px; }
   .contact-section { padding: 80px 1.5rem 60px; }
+  .error-section {
+    min-height: 400px;
+    padding: 110px 1.5rem 60px;
+  }
 }
 
 /* mobile nav open */
